@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Playground.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7ee9ae80ed46e354a9f94c0b7e8bc43f
+  - enabled: 1
+    path: Assets/Scenes/Hub.unity
     guid: e9017d5f96b9f09489b4b37e1d6eb914
+  - enabled: 1
+    path: Assets/Scenes/Administration.unity
+    guid: 4e4aabaa98aafc34e92880e5824bfaa4
+  - enabled: 1
+    path: Assets/Scenes/Labratory.unity
+    guid: 88a42c77809f2b44b85f9959f556fb24
+  - enabled: 1
+    path: Assets/Scenes/Reception.unity
+    guid: a2e16d60696cc064685bd5ee88bd3f2f
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 99918bd54633db44ebcf64eb4f2303ca
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 573065aec99aa1d42977a8fa35827965
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
