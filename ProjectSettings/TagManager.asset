@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Wall
+  - Floor
+  - Ceiling
   layers:
   - Default
   - TransparentFX
