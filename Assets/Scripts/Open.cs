@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Open : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class Open : MonoBehaviour
     void OnTriggerStay()
     {
         if (Input.GetKey (KeyCode.E))
-        hinge.Play ();
-        elevator.Play ();
+        {
+            hinge.Play ();
+            elevator.Play ();
+        }
     }
 }
