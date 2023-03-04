@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 108
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 50
+  controlID: 18
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 51
+  controlID: 19
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -323,23 +323,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/InputSystem
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 69
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/InputSystem
   m_LastFoldersGridSize: 69
   m_LastProjectPath: C:\Users\lucas\Documents\GitHub\CER-BRU
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 135}
-    m_SelectedIDs: 4e400100
-    m_LastClickedID: 81998
-    m_ExpandedIDs: 00000000803e0100444001002e410100444101004e41010000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 3e420100
+    m_LastClickedID: 82494
+    m_ExpandedIDs: 000000005a40010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000803e0100
+    m_ExpandedIDs: 000000005a400100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -507,9 +507,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 203effff243effff2a3effff9472ffffb272ffffee72ffff0cfbffff166e0000
+      m_SelectedIDs: f039ffff
+      m_LastClickedID: -50704
+      m_ExpandedIDs: 0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -850,9 +850,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 10.640239, y: -5.6721063, z: 19.25838}
+    m_Target: {x: 2.100835, y: 0.76488245, z: 14.543766}
     speed: 2
-    m_Value: {x: 10.640224, y: -5.6720967, z: 19.258364}
+    m_Value: {x: 2.100835, y: 0.76488245, z: 14.543766}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -898,13 +898,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.1892356, y: -0.32532012, z: 0.069284186, w: -0.9243089}
+    m_Target: {x: -0.23998196, y: -0.07932455, z: 0.022452934, w: -0.96768147}
     speed: 2
-    m_Value: {x: -0.20023234, y: -0.32433584, z: 0.073159486, w: -0.92160785}
+    m_Value: {x: -0.2398866, y: -0.07929303, z: 0.022444012, w: -0.9672969}
   m_Size:
-    m_Target: 10
+    m_Target: 1.1191515
     speed: 2
-    m_Value: 10
+    m_Value: 1.1191515
   m_Ortho:
     m_Target: 0
     speed: 2
