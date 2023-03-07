@@ -1,25 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Key : MonoBehaviour
 {
-    public Component doorcolliderhere;
-    public Component doorcolliderhere2;
-    public Component doorcolliderhere3;
-    public GameObject keygone;
+    public TextMeshProUGUI textObject;
+    public float timeDelay;
+    public bool hasKey = false;
+    public GameObject card;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        textObject.enabled = false;
+    }
+
     void OnTriggerStay ()
     {
         if(Input.GetKey(KeyCode.E))
         {
-            doorcolliderhere.GetComponent<BoxCollider> ().enabled = true;
-            doorcolliderhere2.GetComponent<BoxCollider> ().enabled = true;
-            doorcolliderhere3.GetComponent<BoxCollider> ().enabled = true;
+            hasKey = true;
+            StartCoroutine(Wait());
         }
+    }
 
-        if(Input.GetKey(KeyCode.E))
-        keygone.SetActive(false);
+    //UI Text Delay
+    IEnumerator Wait()
+    {
+        textObject.enabled = true;
+        textObject.text = "YOU HAVE OBTAINED A KEYCARD";
+        timeDelay = 3f;
+        yield return new WaitForSeconds(timeDelay);
+        textObject.enabled = false;
+        
     }
 }
