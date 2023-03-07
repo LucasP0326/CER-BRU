@@ -6,13 +6,20 @@ using TMPro;
 public class Open : MonoBehaviour
 {
     public GameObject key;
+    public GameObject keyPad;
+    public Material staticMat;
+    public Material successMat;
+    public Material failMat;
     public Animation hinge;
     public AudioSource elevator;
     public bool locked = false;
     public TextMeshProUGUI textObject;
     public float timeDelay;
 
-    // Update is called once per frame
+    void Start()
+    {
+        keyPad.GetComponent<MeshRenderer>().material = staticMat;
+    }
 
     void OnTriggerStay()
     {
@@ -24,6 +31,7 @@ public class Open : MonoBehaviour
             //if door unlocked
             if (locked == false)
             {
+                keyPad.GetComponent<MeshRenderer>().material = successMat;
                 hinge.Play ();
                 elevator.Play ();
             }
@@ -38,6 +46,7 @@ public class Open : MonoBehaviour
             if (locked == true && keyCard.hasKey == true)
             {
                 locked = false;
+                keyPad.GetComponent<MeshRenderer>().material = successMat;
                 hinge.Play ();
                 elevator.Play ();
             }

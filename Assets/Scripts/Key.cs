@@ -24,6 +24,7 @@ public class Key : MonoBehaviour
         {
             hasKey = true;
             StartCoroutine(Wait());
+            transform.position = new Vector3(100.0f, 100.0f, 100.0f);
         }
     }
 
