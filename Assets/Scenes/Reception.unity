@@ -9875,6 +9875,11 @@ PrefabInstance:
       objectReference: {fileID: 179744948}
     - target: {fileID: 2672924983590156027, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
+    - target: {fileID: 2672924983590156027, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
       propertyPath: elevator
       value: 
       objectReference: {fileID: 1815965865}
@@ -9898,6 +9903,11 @@ PrefabInstance:
       propertyPath: keyPad
       value: 
       objectReference: {fileID: 2114922407}
+    - target: {fileID: 4937538340615721851, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
     - target: {fileID: 4937538340615721851, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
       propertyPath: elevator
@@ -9930,6 +9940,11 @@ PrefabInstance:
       objectReference: {fileID: 929573997}
     - target: {fileID: 5838024384223278962, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
+    - target: {fileID: 5838024384223278962, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
       propertyPath: elevator
       value: 
       objectReference: {fileID: 1815965865}
@@ -9958,6 +9973,11 @@ PrefabInstance:
       propertyPath: locked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6059222553186390316, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
     - target: {fileID: 6059222553186390316, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
       propertyPath: elevator
@@ -9993,6 +10013,11 @@ PrefabInstance:
       propertyPath: keyPad
       value: 
       objectReference: {fileID: 1641163029}
+    - target: {fileID: 6265736122303149323, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
     - target: {fileID: 6265736122303149323, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
       propertyPath: elevator
@@ -10153,6 +10178,11 @@ PrefabInstance:
       propertyPath: locked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8786674748932760360, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
+      propertyPath: failMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 459e4d1da958045a986e18315327ff55, type: 2}
     - target: {fileID: 8786674748932760360, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
       propertyPath: elevator
