@@ -145,16 +145,14 @@ public class ProjectileGun : MonoBehaviour
     {
         reloading = true;
         //Move to reload position
-        transform.localPosition = new Vector3(0.42f, -0.5f, 1.03f);
-        gameObject.transform.localRotation = Quaternion.Euler(0, 235, -45.5f);
+        gameObject.transform.localRotation = Quaternion.Euler(0, -70, 0);
         ReloadSFX.Play ();
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
     {
         //Reset gun position
-        transform.localPosition = new Vector3(0.7f, -0.33f, 1.03f);
-        transform.localRotation = Quaternion.Euler(0, -83, 0);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
         //Fill magazine
         bulletsLeft = magazineSize;
         reloading = false;

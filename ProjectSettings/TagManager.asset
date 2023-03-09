@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Floor
   - Ceiling
+  - Gun
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91064a36f14a9974b98bdc78d0e003b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 3
   waypoints: []
   player: {fileID: 0}
   viewRadius: 20
