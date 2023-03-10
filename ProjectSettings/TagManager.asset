@@ -10,6 +10,7 @@ TagManager:
   - Ceiling
   - Gun
   - Enemy
+  - Glass
   layers:
   - Default
   - TransparentFX
