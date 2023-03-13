@@ -39,6 +39,7 @@ public class Open : MonoBehaviour
             //if door locked and no key
             if (locked == true && keyCard.hasKey == false)
             {
+                keyPad.GetComponent<MeshRenderer>().material = failMat;
                 StartCoroutine(Wait());
             }
 

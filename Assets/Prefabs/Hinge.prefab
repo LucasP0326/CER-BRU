@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1063740420840832322}
   - component: {fileID: 1063740420840832323}
   - component: {fileID: 1063740420840832321}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1f4a00cef480a498e0aa304d3eec20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: {fileID: 0}
+  keyPad: {fileID: 0}
+  staticMat: {fileID: 0}
+  successMat: {fileID: 0}
+  failMat: {fileID: 0}
   hinge: {fileID: 1063740420840832323}
   elevator: {fileID: 0}
+  locked: 0
+  textObject: {fileID: 0}
+  timeDelay: 0
 --- !u!111 &1063740420840832323
 Animation:
   m_ObjectHideFlags: 0
@@ -168,6 +176,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64a699930d860c7458d645d42e70fb36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040542448765327740, guid: 64a699930d860c7458d645d42e70fb36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536400945726557719, guid: 64a699930d860c7458d645d42e70fb36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

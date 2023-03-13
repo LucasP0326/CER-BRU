@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     NavMeshAgent agent;
+
+    public float health;
+
+    //waypoints
     public Transform[] waypoints;
     int waypointIndex;
     Vector3 target;
-    public GameObject player;
 
     //fov
+    public GameObject player;
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -20,72 +25,72 @@ public class Enemy : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstructionMask;
 
-    public float health;
-
-    public Vector3 location;
-
-        //Attacking
+    //attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
 
+    Animator animator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        UpdateDestination();
+        player = GameObject.FindWithTag("Player");
+        if (waypoints.Length > 0) ChooseWaypoint();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //look for player
+        //Test if player is in fov
         FieldOfViewCheck();
-        if (seesPlayer)
+
+        if (seenPlayer) //if player has been seen lately
         {
             //follow player
             Vector3 dirToPlayer = transform.position - player.transform.position;
             Vector3 newPos = transform.position - dirToPlayer;
             agent.SetDestination(newPos);
+            animator.SetTrigger("Walk");
         }
         else
         {
             //patrol points
             if (Vector3.Distance(transform.position, target) < 2)
             {
-                waypointIndex = Random.Range(0, waypoints.Length);
-                UpdateDestination();
+                ChooseWaypoint();
+                animator.SetTrigger("Walk");
             }
         }
-
-        //Get enemy position
-        location = transform.position;
     }
-    void UpdateDestination()
+    void ChooseWaypoint()
     {
+        waypointIndex = Random.Range(0, waypoints.Length);
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
     }
 
     void FieldOfViewCheck()
     {
+        //Is the player within view distance?
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-
-        //Distance check
-        if(rangeChecks.Length != 0)
+        if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-            //FOV check
-            if(Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
+            //Is the player within enemy field of view?
+            if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                //Obstruction check
+                //Is the player obstructed?
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     //Debug.Log("Sees player");
                     seesPlayer = true;
                     seenPlayer = true;
+                    StopAllCoroutines();
                 }
                 else
                 {
@@ -93,16 +98,17 @@ public class Enemy : MonoBehaviour
                     if (seenPlayer)
                     {
                         seenPlayer = false;
+                        StopAllCoroutines();
                         StartCoroutine(ForgetPlayer());
                     }
                 }
             }
             else
             {
-                seesPlayer = false;
-                if (seenPlayer)
+                if (seesPlayer)
                 {
-                    seenPlayer = false;
+                    seesPlayer = false;
+                    StopAllCoroutines();
                     StartCoroutine(ForgetPlayer());
                 }
             }
@@ -113,6 +119,7 @@ public class Enemy : MonoBehaviour
             if (seenPlayer)
             {
                 seenPlayer = false;
+                StopAllCoroutines();
                 StartCoroutine(ForgetPlayer());
             }
         }
@@ -121,19 +128,22 @@ public class Enemy : MonoBehaviour
     private IEnumerator ForgetPlayer()
     {
         yield return new WaitForSeconds(10);
-        Debug.Log("Player Forgotten");
-        UpdateDestination();
+        //Debug.Log("Player Forgotten");
+        seenPlayer = false;
+        if (waypoints.Length > 0) ChooseWaypoint();
     }
 
-        private void AttackPlayer()
+    private void AttackPlayer()
     {
 
         if (!alreadyAttacked)
         {
+            Debug.Log("attack");
             ///Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            animator.SetTrigger("Attack");
             ///End of attack code
 
             alreadyAttacked = true;

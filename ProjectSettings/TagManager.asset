@@ -8,6 +8,10 @@ TagManager:
   - Wall
   - Floor
   - Ceiling
+  - Gun
+  - Enemy
+  - Glass
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,11 +23,11 @@ TagManager:
   - 
   - Character
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Wall
+  - Bullet
+  - Gun
+  - Movable Prop
   - 
   - 
   - 

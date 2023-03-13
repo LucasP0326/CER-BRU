@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7660301352206990924}
   - component: {fileID: 7660301352206990923}
   - component: {fileID: 7660301352206990922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hinge 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7660301352557083537}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7660301352206990924
 BoxCollider:
@@ -68,8 +68,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1f4a00cef480a498e0aa304d3eec20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: {fileID: 0}
+  keyPad: {fileID: 0}
+  staticMat: {fileID: 0}
+  successMat: {fileID: 0}
+  failMat: {fileID: 0}
   hinge: {fileID: 7660301352206990922}
   elevator: {fileID: 0}
+  locked: 0
+  textObject: {fileID: 0}
+  timeDelay: 0
 --- !u!111 &7660301352206990922
 Animation:
   m_ObjectHideFlags: 0
@@ -98,7 +106,7 @@ GameObject:
   - component: {fileID: 7660301352557083540}
   - component: {fileID: 7660301352557083539}
   - component: {fileID: 7660301352557083538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,5 +197,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0157251, y: 1, z: 1}
-  m_Center: {x: -0.5078625, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
