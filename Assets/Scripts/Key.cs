@@ -18,9 +18,9 @@ public class Key : MonoBehaviour
         textObject.enabled = false;
     }
 
-    void OnTriggerStay ()
+    void OnTriggerStay (Collider other)
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKey(KeyCode.E) && other.gameObject.tag == "Player")
         {
             hasKey = true;
             StartCoroutine(Wait());

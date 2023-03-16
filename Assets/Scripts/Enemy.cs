@@ -30,11 +30,14 @@ public class Enemy : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
+    Animator animator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         if (waypoints.Length > 0) ChooseWaypoint();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -48,6 +51,7 @@ public class Enemy : MonoBehaviour
             Vector3 dirToPlayer = transform.position - player.transform.position;
             Vector3 newPos = transform.position - dirToPlayer;
             agent.SetDestination(newPos);
+            animator.SetTrigger("Walk");
         }
         else
         {
@@ -55,6 +59,7 @@ public class Enemy : MonoBehaviour
             if (Vector3.Distance(transform.position, target) < 2)
             {
                 ChooseWaypoint();
+                animator.SetTrigger("Walk");
             }
         }
     }
@@ -138,6 +143,7 @@ public class Enemy : MonoBehaviour
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            animator.SetTrigger("Attack");
             ///End of attack code
 
             alreadyAttacked = true;
