@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Glass
   - Bullet
+  - Invisibility
   layers:
   - Default
   - TransparentFX
