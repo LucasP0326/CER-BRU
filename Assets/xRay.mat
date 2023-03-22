@@ -47,8 +47,8 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 1
-    - _FreshnetPower: 2
-    - _NoiseAmount: 0
+    - _FreshnetPower: 0.64
+    - _NoiseAmount: 0.78
     - _NoisePower: 3
     - _NoiseScale: 10
     - _QueueControl: 0
@@ -60,7 +60,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 0.12958345, g: 0.5028367, b: 0.6132076, a: 0.3921569}
-    - _NoiseSpeed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _NoiseSpeed: {r: 1.78, g: -0.05, b: 0, a: 0}
     - _NoiseTiling: {r: 0.5, g: 30, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5757335366562083461
