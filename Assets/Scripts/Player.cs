@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     //pickups
     bool standingOnPickup;
     GameObject pickupUnderPlayer;
+    public bool invisibilityEquipped;
     public bool invisible;
     public int invisibilityLength;
+    public GameObject invisiblityIcon;
 
     public GameObject gunPosition;
     public Material transparentMat;
@@ -25,9 +27,17 @@ public class Player : MonoBehaviour
         {
             standingOnPickup = false;
             Destroy(pickupUnderPlayer);
+            invisibilityEquipped = true;
+            invisiblityIcon.SetActive(true);
+        }
+
+        if (Input.GetKey(KeyCode.F) && invisibilityEquipped)
+        {
+            invisibilityEquipped = false;
             playerInvisible();
             invisible = true;
             StartCoroutine(InvisibilityCountdown());
+            invisiblityIcon.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider collision)
