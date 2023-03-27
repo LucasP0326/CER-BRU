@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 129
+  controlID: 125
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 60
+  controlID: 59
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 61
+  controlID: 60
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -413,23 +413,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Animations
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 69
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Animations
   m_LastFoldersGridSize: 69
   m_LastProjectPath: C:\Users\lucas\Documents\GitHub\CER-BRU
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 595}
-    m_SelectedIDs: ec3c0100
-    m_LastClickedID: 81132
-    m_ExpandedIDs: 00000000ba3c0100e03c0100ea3c0100f83d010000ca9a3b
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: 2e3d0100
+    m_LastClickedID: 81198
+    m_ExpandedIDs: 00000000e43c0100343d0100403d01000cf7030000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -457,7 +457,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba3c0100
+    m_ExpandedIDs: 00000000e43c0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -597,9 +597,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d23f0100
+      m_SelectedIDs: b0330000
       m_LastClickedID: 0
-      m_ExpandedIDs: c6f0ecff8261edffb272edffb672edffbe72edffc072edffd2caedffe8e0edff7eefedff82efedff8aefedff22f1edff6a27eeff2e57eeff545ceeff426feeffb4c2eeffa4c7eeffdabbefffecd8efff38deefff1810f3ff2010f3ffbc73f3ffc473f3ff668ef3ff229df3ff16d7f6ff94e1f6ffb4e1f6ff9698f7ffc298f7ff0aebf8ff4824fdffc2e9fdff54eefefffc36ffffee41ffff0e42ffff2e42ffff4e42ffff6e42ffff8e42ffffae42ffffd247ffffe647fffffa47ffff0e48ffff2248ffff4648fffff4d2fffffed2ffff54d8ffff08d9fffffeefffff08f0ffff8ef9ffff90f9ffffe0faffff64d21000d82520009e3120004e3e2000
+      m_ExpandedIDs: a201fdff9e0dfdffcc1efdff601ffdffaad0fdff2ed3fdff58fcfdff341dfeff104efeff184efeffc072fefff62dffff72faffff2c5a0100d8ec0700e4fb0700d2fe0700
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -940,9 +940,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 13.039013, y: -5.7023926, z: -9.8626995}
+    m_Target: {x: 1.049329, y: 0.92705035, z: 10.675543}
     speed: 2
-    m_Value: {x: 13.039013, y: -5.7023926, z: -9.8626995}
+    m_Value: {x: 1.049329, y: 0.92705035, z: 10.675543}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -988,13 +988,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08444511, y: 0.885116, z: -0.18461464, w: 0.4199587}
+    m_Target: {x: 0.12778173, y: 0.69986314, z: -0.13427451, w: 0.6905727}
     speed: 2
-    m_Value: {x: 0.08377386, y: 0.8849456, z: -0.18319386, w: 0.41987288}
+    m_Value: {x: 0.12751281, y: 0.70052814, z: -0.13439503, w: 0.68915796}
   m_Size:
-    m_Target: 10
+    m_Target: 1.3603221
     speed: 2
-    m_Value: 0.73339456
+    m_Value: 1.3603221
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1086,7 +1086,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
