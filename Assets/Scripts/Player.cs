@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Material transparentMat;
     public Material opaqueMat;
     public GameObject Mesh;
+    public int informationDeleted = 0;
 
     private void Update()
     {
@@ -114,5 +115,10 @@ public class Player : MonoBehaviour
     {
         Debug.Log("You died!");
         SceneManager.LoadScene("Lose");
+    }
+
+    public void DeleteInformation(int informationValue)
+    {
+        informationDeleted += informationValue;
     }
 }
