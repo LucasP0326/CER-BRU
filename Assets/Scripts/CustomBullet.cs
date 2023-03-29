@@ -35,6 +35,12 @@ public class CustomBullet : MonoBehaviour
             //Debug.Log("Hit Wall!");
             Destroy(gameObject);
         }
+
+        if (collision.collider.tag == "Glass")
+        {
+            collision.collider.GetComponent<Glass>().ChangeMesh();
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator TimeOut(){

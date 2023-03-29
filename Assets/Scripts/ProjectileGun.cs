@@ -69,7 +69,7 @@ public class ProjectileGun : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !PauseMenu.GameIsPaused && equipped)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && equipped)
         {
             //Set bullets shot to 0
             bulletsShot = 0;
