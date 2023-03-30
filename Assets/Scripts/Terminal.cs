@@ -61,8 +61,8 @@ public class Terminal : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         terminalScreen.SetActive(false);
-        Time.timeScale = 1f;
         GameIsPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void OpenEmail1()
