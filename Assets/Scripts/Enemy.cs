@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -185,6 +186,7 @@ public class Enemy : MonoBehaviour
     }
     private void DestroyEnemy()
     {
+        Destroy(gameObject.GetComponent<CapsuleCollider>());
         agent.SetDestination(transform.position);
         seesPlayer = false;
         seenPlayer = false;

@@ -25,6 +25,7 @@ public class ProjectileGun : MonoBehaviour
 
     //bools
     bool shooting, readyToShoot, reloading;
+    public bool aiming;
 
     //Reference
     public Camera fpsCam;
@@ -69,7 +70,7 @@ public class ProjectileGun : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && equipped)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && aiming)
         {
             //Set bullets shot to 0
             bulletsShot = 0;

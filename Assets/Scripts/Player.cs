@@ -1,56 +1,101 @@
+using Cinemachine;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public bool hasGun;
+    private GameObject gun;
     public int health;
+
+    //ADS
+    public GameObject followCamera;
+    private float defaultZoom;
+    public float ADSZoom;
     
     //pickups
     bool standingOnPickup;
     GameObject pickupUnderPlayer;
-    public bool invisibilityEquipped;
+    private bool invisibilityUsable;
     public bool invisible;
     public int invisibilityLength;
+    public int invisibilityCooldown;
     public GameObject invisiblityIcon;
 
-    public GameObject gunPosition;
+    public GameObject restingGunPosition;
+    public GameObject aimingGunPosition;
     public Material transparentMat;
     public Material opaqueMat;
     public GameObject Mesh;
     public int informationDeleted = 0;
 
+    private void Start()
+    {
+        followCamera = GameObject.FindWithTag("Camera");
+        defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
+
+        if (hasGun)
+        {
+            gun = GameObject.FindWithTag("Gun");
+        }
+    }
+
     private void Update()
     {
+        //ADS
+        if (hasGun && Input.GetMouseButtonDown(1)){
+            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
+            gameObject.GetComponent<ThirdPersonController>().aiming = true;
+            gun.GetComponent<ProjectileGun>().aiming = true;
+
+            gun.transform.parent = aimingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (hasGun && Input.GetMouseButtonUp(1))
+        {
+            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
+            gameObject.GetComponent<ThirdPersonController>().aiming = false;
+            gun.GetComponent<ProjectileGun>().aiming = false;
+
+            gun.transform.parent = restingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
         if (Input.GetKey(KeyCode.E) && standingOnPickup)
         {
             standingOnPickup = false;
             Destroy(pickupUnderPlayer);
-            invisibilityEquipped = true;
+            invisibilityUsable = true;
             invisiblityIcon.SetActive(true);
+            invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
         }
 
-        if (Input.GetKey(KeyCode.F) && invisibilityEquipped)
+        if (Input.GetKey(KeyCode.F) && invisibilityUsable)
         {
-            invisibilityEquipped = false;
+            invisibilityUsable = false;
             playerInvisible();
             invisible = true;
             StartCoroutine(InvisibilityCountdown());
-            invisiblityIcon.SetActive(false);
+            invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Gun" && !hasGun)
         {
-            collision.transform.parent = gunPosition.transform;
-            collision.transform.localPosition = new Vector3(0f, 0f, 0f);
-            //collision.transform.localPosition = new Vector3(0.7f, -0.33f, 1.03f);
-            collision.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            gun = collision.gameObject;
 
-            collision.gameObject.GetComponent<ProjectileGun>().equipped = true;
+            gun.transform.parent = restingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            gun.GetComponent<ProjectileGun>().equipped = true;
             hasGun = true;
         }
 
@@ -96,6 +141,10 @@ public class Player : MonoBehaviour
         playerVisible();
         
         invisible = false;
+
+        yield return new WaitForSeconds(invisibilityCooldown);
+        invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
+        invisibilityUsable = true;
     }
 
     private void playerInvisible()
