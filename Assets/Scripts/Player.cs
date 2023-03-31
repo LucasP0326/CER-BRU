@@ -47,7 +47,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //ADS
-        if (hasGun && Input.GetMouseButtonDown(1)){
+        if (hasGun && Input.GetMouseButtonDown(1))
+        {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = true;
             gun.GetComponent<ProjectileGun>().aiming = true;
@@ -66,6 +67,27 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+        //Controller require attention here, aim stuck and won't toggle like PC does
+        if (hasGun && Input.GetButtonDown("Aim")) 
+        {
+            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
+            gameObject.GetComponent<ThirdPersonController>().aiming = true;
+            gun.GetComponent<ProjectileGun>().aiming = true;
+
+            gun.transform.parent = aimingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (hasGun && Input.GetButtonDown("Aim"))
+        {
+            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
+            gameObject.GetComponent<ThirdPersonController>().aiming = false;
+            gun.GetComponent<ProjectileGun>().aiming = false;
+
+            gun.transform.parent = restingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
 
         if (Input.GetKey(KeyCode.E) && standingOnPickup)
         {
@@ -75,8 +97,24 @@ public class Player : MonoBehaviour
             invisiblityIcon.SetActive(true);
             invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
         }
+        if (Input.GetButtonDown("Interact") && standingOnPickup) //CONTROLLER
+         {
+            standingOnPickup = false;
+            Destroy(pickupUnderPlayer);
+            invisibilityUsable = true;
+            invisiblityIcon.SetActive(true);
+            invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
+        }
 
         if (Input.GetKey(KeyCode.F) && invisibilityUsable)
+        {
+            invisibilityUsable = false;
+            playerInvisible();
+            invisible = true;
+            StartCoroutine(InvisibilityCountdown());
+            invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
+        }
+        if (Input.GetButtonDown("Use") && invisibilityUsable) //CONTROLLER
         {
             invisibilityUsable = false;
             playerInvisible();

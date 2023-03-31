@@ -41,12 +41,27 @@ public class Terminal : MonoBehaviour
                 Resume();
             }
         }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+        }
     }
 
     //Script to open terminal
     void OnTriggerStay (Collider other)
     {
         if(Input.GetKey(KeyCode.E) && other.gameObject.tag == "Player")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            terminalScreen.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
+        //CONTROLLER Need editing here, since it's a menu
+        if (Input.GetButtonDown("Interact") && other.gameObject.tag == "Player") 
         {
             Cursor.lockState = CursorLockMode.Confined;
             terminalScreen.SetActive(true);

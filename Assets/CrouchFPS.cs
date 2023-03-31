@@ -11,14 +11,28 @@ public class Crouch : MonoBehaviour
 	public Vector3 offset;
 	
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.C)){
+		if(Input.GetKeyDown(KeyCode.C))
+		{
 			PlayerHeight.height = crouchHeight;
 			playerCol.height = crouchHeight;
 		}
-		if(Input.GetKeyUp(KeyCode.C)){
+		if(Input.GetKeyUp(KeyCode.C))
+		{
 			PlayerHeight.height = normalHeight;
 			playerCol.height = normalHeight;
             player.position = player.position + offset;			
+		}
+		//CONTROLLER
+		if (Input.GetButtonDown("Crouch")) 
+		{
+			PlayerHeight.height = crouchHeight;
+			playerCol.height = crouchHeight;
+		}
+		if (Input.GetButtonDown("Crouch"))
+		{
+			PlayerHeight.height = normalHeight;
+			playerCol.height = normalHeight;
+            player.position = player.position + offset;		
 		}
 	}
 }
