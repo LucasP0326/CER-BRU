@@ -63,12 +63,6 @@ public class ProjectileGun : MonoBehaviour
             shooting = Input.GetKey(KeyCode.Mouse0);
         else 
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        
-        if (allowButtonHold)
-         shooting = Input.GetButtonDown("Shoot"); //CONTROLLER
-        else 
-            shooting = Input.GetButtonDown("Shoot"); //CONTROLLER
-
         //Reloading 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
         //Reload automatically when trying to shoot without ammo
