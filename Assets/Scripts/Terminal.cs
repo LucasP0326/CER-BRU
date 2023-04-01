@@ -18,6 +18,7 @@ public class Terminal : MonoBehaviour
     public bool emailsDeleted = false;
     public int informationValue = 0;
     public GameObject player;
+    public bool screenOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,16 @@ public class Terminal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale != 0f)
+        {
+            screenOpen = false;
+        }
+
+        if (screenOpen == false)
+        {
+            terminalScreen.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -56,6 +67,7 @@ public class Terminal : MonoBehaviour
         if(Input.GetKey(KeyCode.E) && other.gameObject.tag == "Player")
         {
             Cursor.lockState = CursorLockMode.Confined;
+            screenOpen = true;
             terminalScreen.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
@@ -64,6 +76,7 @@ public class Terminal : MonoBehaviour
         if (Input.GetButtonDown("Interact") && other.gameObject.tag == "Player") 
         {
             Cursor.lockState = CursorLockMode.Confined;
+            screenOpen = true;
             terminalScreen.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
@@ -76,8 +89,8 @@ public class Terminal : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         terminalScreen.SetActive(false);
-        GameIsPaused = false;
         Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
     public void OpenEmail1()
@@ -163,6 +176,11 @@ public class Terminal : MonoBehaviour
             player.GetComponent<Player>().DeleteInformation(informationValue);
         }
         emailsDeleted = true;
+        Resume();
+    }
+
+    public void Close()
+    {
         Resume();
     }
 }
