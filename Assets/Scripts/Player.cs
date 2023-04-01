@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (hasGun && Input.GetButtonDown("Aim"))
+        else if (hasGun && Input.GetButtonUp("Aim"))
         {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = false;

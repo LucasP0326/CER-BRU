@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     bool alive = true;
 
+    bool xrayed;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -47,6 +49,29 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X)){
+            if (!xrayed)
+            {
+                gameObject.layer = 6;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 6;
+                }
+                xrayed = true;
+            }
+            else
+            {
+                gameObject.layer = 0;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 0;
+                }
+                xrayed = false;
+            }
+        }
+
         //Test if player is in fov
         if (!player.GetComponent<Player>().invisible && alive)
         {
