@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,9 +29,13 @@ public class Enemy : MonoBehaviour
     //attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    public int attackDamage;
 
     Animator animator;
+
+    bool invisibled;
+
+    bool alive = true;
 
     void Start()
     {
@@ -43,7 +48,25 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //Test if player is in fov
-        FieldOfViewCheck();
+        if (!player.GetComponent<Player>().invisible && alive)
+        {
+            invisibled = false;
+            FieldOfViewCheck();
+        }
+        else if (!invisibled && alive)
+        {
+            StopAllCoroutines();
+            seenPlayer = false;
+            seesPlayer = false;
+            if (waypoints.Length > 0) ChooseWaypoint();
+            else 
+            {
+                agent.SetDestination(transform.position);
+                animator.ResetTrigger("Walk");
+                animator.SetTrigger("Idle");
+            }
+            invisibled = true;
+        }
 
         if (seenPlayer) //if player has been seen lately
         {
@@ -52,6 +75,9 @@ public class Enemy : MonoBehaviour
             Vector3 newPos = transform.position - dirToPlayer;
             agent.SetDestination(newPos);
             animator.SetTrigger("Walk");
+
+            float distance = Vector3.Distance (transform.position, player.transform.position);
+            if (distance <= 1) AttackPlayer();
         }
         else
         {
@@ -72,7 +98,7 @@ public class Enemy : MonoBehaviour
 
     void FieldOfViewCheck()
     {
-        //Is the player within view distance?
+        //Is the player within view distance, and doens't have invisibility active?
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         if (rangeChecks.Length != 0)
         {
@@ -138,13 +164,10 @@ public class Enemy : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            Debug.Log("attack");
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            //Debug.Log("attack!");
             animator.SetTrigger("Attack");
-            ///End of attack code
+            player.GetComponent<Player>().health -= attackDamage;
+            if (player.GetComponent<Player>().health == 0) player.GetComponent<Player>().Death();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -163,6 +186,11 @@ public class Enemy : MonoBehaviour
     }
     private void DestroyEnemy()
     {
-        Destroy(gameObject);
+        Destroy(gameObject.GetComponent<CapsuleCollider>());
+        agent.SetDestination(transform.position);
+        seesPlayer = false;
+        seenPlayer = false;
+        animator.SetTrigger("Death");
+        alive = false;
     }
 }

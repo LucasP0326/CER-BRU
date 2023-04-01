@@ -26,6 +26,12 @@ public class Key : MonoBehaviour
             StartCoroutine(Wait());
             transform.position = new Vector3(100.0f, 100.0f, 100.0f);
         }
+        if (Input.GetButtonDown("Interact") && other.gameObject.tag == "Player") //CONTROLLER
+        {
+             hasKey = true;
+            StartCoroutine(Wait());
+            transform.position = new Vector3(100.0f, 100.0f, 100.0f);
+        }
     }
 
     //UI Text Delay

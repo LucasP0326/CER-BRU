@@ -52,6 +52,32 @@ public class Open : MonoBehaviour
                 elevator.Play ();
             }
         }
+        if (Input.GetButtonDown("Interact")) //CONTROLLER
+        {
+             //if door unlocked
+            if (locked == false)
+            {
+                keyPad.GetComponent<MeshRenderer>().material = successMat;
+                hinge.Play ();
+                elevator.Play ();
+            }
+
+            //if door locked and no key
+            if (locked == true && keyCard.hasKey == false)
+            {
+                keyPad.GetComponent<MeshRenderer>().material = failMat;
+                StartCoroutine(Wait());
+            }
+
+            //if door locked and key
+            if (locked == true && keyCard.hasKey == true)
+            {
+                locked = false;
+                keyPad.GetComponent<MeshRenderer>().material = successMat;
+                hinge.Play ();
+                elevator.Play ();
+            }
+        }
     }
 
     IEnumerator Wait()

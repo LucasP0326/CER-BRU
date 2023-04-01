@@ -25,6 +25,7 @@ public class ProjectileGun : MonoBehaviour
 
     //bools
     bool shooting, readyToShoot, reloading;
+    public bool aiming;
 
     //Reference
     public Camera fpsCam;
@@ -62,14 +63,13 @@ public class ProjectileGun : MonoBehaviour
             shooting = Input.GetKey(KeyCode.Mouse0);
         else 
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
-
         //Reloading 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
         //Reload automatically when trying to shoot without ammo
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !PauseMenu.GameIsPaused && equipped)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && aiming)
         {
             //Set bullets shot to 0
             bulletsShot = 0;

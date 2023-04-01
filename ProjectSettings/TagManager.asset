@@ -12,6 +12,9 @@ TagManager:
   - Enemy
   - Glass
   - Bullet
+  - Invisibility
+  - Vent Floor
+  - Camera
   layers:
   - Default
   - TransparentFX
@@ -29,7 +32,7 @@ TagManager:
   - Gun
   - Movable Prop
   - 
-  - 
+  - RenderAbove
   - 
   - 
   - 
