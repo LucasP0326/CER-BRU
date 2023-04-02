@@ -8,7 +8,7 @@ public class RetryGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
@@ -20,5 +20,11 @@ public class RetryGame : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+    
+        Application.Quit();
     }
 }
