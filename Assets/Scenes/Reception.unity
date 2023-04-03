@@ -6294,6 +6294,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6278376779120309572, guid: edb81ae01f8e0304f8defeb08b6e99dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c944313620c50449aa923b0e5787aeb, type: 2}
     - target: {fileID: -6170625038081293824, guid: edb81ae01f8e0304f8defeb08b6e99dc,
         type: 3}
       propertyPath: m_Layer
@@ -7930,7 +7935,6 @@ GameObject:
   - component: {fileID: 445896955}
   - component: {fileID: 445896954}
   - component: {fileID: 445896953}
-  - component: {fileID: 445896958}
   m_Layer: 0
   m_Name: Keycard
   m_TagString: Untagged
@@ -8040,33 +8044,6 @@ Transform:
   m_Father: {fileID: 1021619038}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -71.056, y: 56.523, z: 83.05}
---- !u!54 &445896958
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445896952}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &448527753
 GameObject:
   m_ObjectHideFlags: 0
@@ -17755,6 +17732,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6278376779120309572, guid: edb81ae01f8e0304f8defeb08b6e99dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60bf7009dbd3ece4cb00db71bbcc5439, type: 2}
     - target: {fileID: -6170625038081293824, guid: edb81ae01f8e0304f8defeb08b6e99dc,
         type: 3}
       propertyPath: m_Layer
@@ -19031,6 +19013,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6278376779120309572, guid: edb81ae01f8e0304f8defeb08b6e99dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85c399197c96e304ca49f9e0c70a55df, type: 2}
     - target: {fileID: -6170625038081293824, guid: edb81ae01f8e0304f8defeb08b6e99dc,
         type: 3}
       propertyPath: m_Layer
