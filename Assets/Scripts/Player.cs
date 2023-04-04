@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public Material opaqueMat;
     public GameObject Mesh;
     public int informationDeleted = 0;
+    public int informationSaved = 0;
 
     private void Start()
     {
@@ -207,5 +208,10 @@ public class Player : MonoBehaviour
     public void DeleteInformation(int informationValue)
     {
         informationDeleted += informationValue;
+    }
+
+    public void SaveInformation(int informationValue)
+    {
+        informationSaved += informationValue;
     }
 }
