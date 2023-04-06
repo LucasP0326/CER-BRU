@@ -521,8 +521,8 @@ MonoBehaviour:
   deletedMessage: {fileID: 1133881368}
   emailsDeleted: 0
   emailsSaved: 0
-  informationValue: 1
-  player: {fileID: 0}
+  informationValue: 2
+  player: {fileID: 2133050765}
   screenOpen: 0
 --- !u!65 &189448709
 BoxCollider:
@@ -669,11 +669,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "FROM: CER\xC6BRU ALERT SYSTEM\nSENT: 29/03/2052  14:56:22\n\n*Urgent CER\xC6BRU
-    Alert*\n\nCode: RED\n\nA code RED alert has been triggered on level L-13.  Non-essential
-    staff will be evacuated according to their queue codes.  Please remain calm,
-    continue your work, and follow security instructions when your queue code is
-    called.\n\n"
+  m_text: 'LAST UPDATED: 29/03/2052  15:02:12
+
+
+
+    I don''t know what''s happening. 
+    First the noises, then the security, then the alerts, and now this?  Security
+    already came and went.  I can hear gunfire coming from the lower levels.  I don''t
+    know what''s happening.  We tried leaving, but the elevators wouldn''t work for
+    us.  They shut down our access.  They told us to wait for security to come and
+    evacuate, but...they''re not here.  I don''t know what''s happening.  It''s all
+    just so fucked!  Sasha, Jake, and the other office people are starting to set
+    up barricades.  I think I''m going to join them.  I don''t know when security''s
+    coming, but I don''t want to be stuck out here.  God please, just let this end
+    soon.  I''m scared.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 860747d2642b337499eddc8d7fa388ed, type: 2}
   m_sharedMaterial: {fileID: 6732388735566608628, guid: 860747d2642b337499eddc8d7fa388ed,
@@ -1692,9 +1701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: SECURITY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47345af592a1db54fac78d7bce51d10d, type: 2}
   m_sharedMaterial: {fileID: 8407734266623699628, guid: 47345af592a1db54fac78d7bce51d10d,
@@ -2832,7 +2839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CORPORATE ALERT
+  m_text: I'M SCARED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47345af592a1db54fac78d7bce51d10d, type: 2}
   m_sharedMaterial: {fileID: 8407734266623699628, guid: 47345af592a1db54fac78d7bce51d10d,
@@ -3384,7 +3391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LUNCH?
+  m_text: CORPORATE ALERT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47345af592a1db54fac78d7bce51d10d, type: 2}
   m_sharedMaterial: {fileID: 8407734266623699628, guid: 47345af592a1db54fac78d7bce51d10d,
@@ -3593,7 +3600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NOISES
+  m_text: RECEPTION INSTRUCTIONS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47345af592a1db54fac78d7bce51d10d, type: 2}
   m_sharedMaterial: {fileID: 8407734266623699628, guid: 47345af592a1db54fac78d7bce51d10d,
@@ -3621,8 +3628,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3709,28 +3716,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FROM: JAYDA PHILIPS
-
-    SENT: 29/03/2052  13:44:56
-
-
-    Mark,
-
-
-    Lunch
-    was nice, but next time, I choose the place.  I think I''ve had about all the
-    cafeteria grub I can stomach.  Hear they opened up a new Franks-A-Lot down the
-    street.  Better than having to listen to the constant whirring coming down from
-    the labs.  What d''ya think the eggheads are up to this time?  Can''t be worse
-    than the erotic stimulant package they pushed out last week, lol.
-
-
-    Keep
-    in touch!
-
-    Jayda
-
-'
+  m_text: "FROM: CER\xC6BRU ALERT SYSTEM\nSENT: 29/03/2052  14:56:23\n\nA Code RED
+    alert has been signalled.\n\nReception Instructions are as follows:\n--Maintain
+    order and calm\n--Evacuate employees in accordance to queue codes\n--Comply with
+    miscellaenous security instructions\n--Do not interfere with security operations\n\nCER\xC6BRU
+    appreciates your compliance with corporate policy and readiness to assist.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 860747d2642b337499eddc8d7fa388ed, type: 2}
   m_sharedMaterial: {fileID: 6732388735566608628, guid: 860747d2642b337499eddc8d7fa388ed,
@@ -5790,7 +5780,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1762682258}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2133050765}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
@@ -5802,7 +5792,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1762682258}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2133050765}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -6248,7 +6238,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
+  m_text: 'FROM: SASHA ERIKSON
+
+    SENT: 29/03/2052  14:32:19
+
+
+    Kate,
+
+
+    I
+    don''t want to pry, but just noticed that you''re letting in a lot more security
+    than normally comes down here.  Is there anything wrong?  Want to know if I should
+    clock out early.  last time we had a code yellow, they kept us here past midnight
+    and I missed the last train home.  Wouldn''t mind avoiding that this time around.
+
+
+    ------------------------------------------------------
+
+    FROM:
+    RE: KATE WINSETT
+
+    SENT: 29/03/2052 14:39:16
+
+
+    I''m sure it''s nothing,
+    Sasha.  You know how R&D gets.  Probably a precaution.  They would have sent
+    a code out by now if there was a big issue.
+
 
 '
   m_isRightToLeft: 0
@@ -6278,8 +6294,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6523,23 +6539,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FROM: RE: JAYDA PHILIPS
-
-    SENT: 28/03/2052  15:26:13
-
-
-    Hi Mark!
-
-
-    Lunch
-    sounds great!  Just need to finish putting together some correspondance, but
-    I should be free tomorrow!  See you then!
-
-
-    Jayda
-
-
-'
+  m_text: "FROM: CER\xC6BRU ALERT SYSTEM\nSENT: 29/03/2052  14:56:22\n\n*Urgent CER\xC6BRU
+    Alert*\n\nCode: RED\n\nA code RED alert has been triggered on level L-13.  Non-essential
+    staff will be evacuated according to their queue codes.  Please remain calm,
+    continue your work, and follow security instructions when your queue code is
+    called.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 860747d2642b337499eddc8d7fa388ed, type: 2}
   m_sharedMaterial: {fileID: 6732388735566608628, guid: 860747d2642b337499eddc8d7fa388ed,
@@ -7033,6 +7037,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090725394}
   m_CullTransparentMesh: 1
+--- !u!1 &2133050765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762682258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2114283753834967212
 GameObject:
   m_ObjectHideFlags: 0
