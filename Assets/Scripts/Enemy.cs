@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     bool alreadyAttacked;
     public int attackDamage;
 
-    Animator animator;
+    public Animator animator;
 
     bool invisibled;
 
@@ -43,8 +43,8 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
-        if (waypoints.Length > 0) ChooseWaypoint();
         animator = GetComponent<Animator>();
+        if (waypoints.Length > 0) ChooseWaypoint();
     }
 
     void Update()
@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour
         else
         {
             //patrol points
-            if (Vector3.Distance(transform.position, target) < 2)
+            if (Vector3.Distance(transform.position, target) < 1)
             {
                 ChooseWaypoint();
                 animator.SetTrigger("Walk");
@@ -141,12 +141,21 @@ public class Enemy : MonoBehaviour
         waypointIndex = Random.Range(0, waypoints.Length);
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
+        animator.SetTrigger("Walk");
     }
 
     void FieldOfViewCheck()
     {
+        //is the player next to the enemy
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 1, targetMask);
+        if (rangeChecks.Length != 0){
+            seesPlayer = true;
+            seenPlayer = true;
+            StopAllCoroutines();
+        }
+        
         //Is the player within view distance, and doens't have invisibility active?
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
@@ -227,6 +236,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        seesPlayer = true;
+        seenPlayer = true;
+        StopAllCoroutines();
         health -= damage;
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
