@@ -23,6 +23,17 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        if (Input.GetButtonDown("Jump") && Time.timeScale != 0f)
+        {
+         if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
 
     public void Resume()
