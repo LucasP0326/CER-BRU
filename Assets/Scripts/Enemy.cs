@@ -118,13 +118,22 @@ public class Enemy : MonoBehaviour
         if (seenPlayer) //if player has been seen lately
         {
             //follow player
-            Vector3 dirToPlayer = transform.position - player.transform.position;
-            Vector3 newPos = transform.position - dirToPlayer;
-            agent.SetDestination(newPos);
-            animator.SetTrigger("Walk");
 
             float distance = Vector3.Distance (transform.position, player.transform.position);
-            if (distance <= 1) AttackPlayer();
+
+            Vector3 dirToPlayer = transform.position - player.transform.position;
+            Vector3 newPos = transform.position - dirToPlayer;
+
+            if (distance >= 1){
+                agent.SetDestination(newPos);
+                animator.SetTrigger("Walk");
+            }
+            else{
+                agent.SetDestination(transform.position);
+                animator.SetTrigger("Idle");
+            }
+
+            if (distance <= 1.5) AttackPlayer();
         }
         else
         {
@@ -224,9 +233,9 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Attack");
             player.GetComponent<Player>().health -= attackDamage;
             if (player.GetComponent<Player>().health == 0) player.GetComponent<Player>().Death();
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke(nameof(FinishAttackAnim), 0.5f);
         }
     }
         private void ResetAttack()
@@ -236,12 +245,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (!player.GetComponent<Player>().invisible && alive){
         seesPlayer = true;
         seenPlayer = true;
         StopAllCoroutines();
         health -= damage;
-
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        }
     }
     private void DestroyEnemy()
     {
@@ -251,5 +261,11 @@ public class Enemy : MonoBehaviour
         seenPlayer = false;
         animator.SetTrigger("Death");
         alive = false;
+    }
+
+    private void FinishAttackAnim()
+    {
+        float distance = Vector3.Distance (transform.position, player.transform.position);
+        //if (distance <= 1.5) Debug.Log("HIT");
     }
 }

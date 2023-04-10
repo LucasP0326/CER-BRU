@@ -591,6 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7515712897689636189}
   - component: {fileID: 6402263331274724255}
+  - component: {fileID: 8786336912549582056}
   m_Layer: 0
   m_Name: long sink
   m_TagString: Wall
@@ -619,7 +620,7 @@ Transform:
   - {fileID: 1295593031566626597}
   - {fileID: 6559498495283714097}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!65 &6402263331274724255
 BoxCollider:
@@ -642,6 +643,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.839031, y: 2.3740897, z: 1.994969}
   m_Center: {x: -0.59018373, y: 0.687045, z: 0.49748418}
+--- !u!208 &8786336912549582056
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794879021231924765}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.5, y: 0.9, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.9, z: 0.3}
+  m_TimeToStationary: 0.5
 --- !u!1 &8847437083243938310
 GameObject:
   m_ObjectHideFlags: 0
