@@ -6324,6 +6324,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310610687}
   m_CullTransparentMesh: 1
+--- !u!1 &321155776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2355865121799507033, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6313001231365492936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &321164353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8506,8 +8512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.511, y: -10.92}
-  m_SizeDelta: {x: 150.98, y: 78.159}
+  m_AnchoredPosition: {x: 38.1948, y: -10.92}
+  m_SizeDelta: {x: 223.6123, y: 78.159}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460177284
 MonoBehaviour:
@@ -22992,6 +22998,15 @@ MonoBehaviour:
   caller: {fileID: 584880029}
   transmission: {fileID: 780354262}
   timeDelay: 0
+  timeDelay2: 0
+  timeDelay3: 0
+  hasSprinted: 0
+  hasAccessedTerminal: 0
+  showedDoorTutorial: 0
+  showedDoorTutorial2: 0
+  showedEnemyTutorial: 0
+  player: {fileID: 283017369}
+  door: {fileID: 321155776}
 --- !u!1 &1551916721
 GameObject:
   m_ObjectHideFlags: 0
@@ -28410,6 +28425,7 @@ MonoBehaviour:
   Mesh: {fileID: 1133952996}
   informationDeleted: 0
   informationSaved: 0
+  killCount: 0
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -35814,6 +35830,11 @@ PrefabInstance:
       propertyPath: textObject
       value: 
       objectReference: {fileID: 1390043965}
+    - target: {fileID: 8786674748932760360, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
+        type: 3}
+      propertyPath: openedLockedDoor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8883631380682341570, guid: 89eb83c2e4dc5ce4d89e7cf87e24cfd2,
         type: 3}
       propertyPath: brokenMat

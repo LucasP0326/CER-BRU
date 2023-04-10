@@ -260,7 +260,9 @@ public class Enemy : MonoBehaviour
         seesPlayer = false;
         seenPlayer = false;
         animator.SetTrigger("Death");
-        alive = false;
+        if (alive == true)
+            player.GetComponent<Player>().UpdateKillCount();
+        alive = false; //For some reason this is really fucking funny
     }
 
     private void FinishAttackAnim()

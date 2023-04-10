@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public GameObject Mesh;
     public int informationDeleted = 0;
     public int informationSaved = 0;
+    public int killCount = 0;
 
     private void Start()
     {
@@ -213,5 +214,10 @@ public class Player : MonoBehaviour
     public void SaveInformation(int informationValue)
     {
         informationSaved += informationValue;
+    }
+
+    public void UpdateKillCount()
+    {
+        killCount += 1;
     }
 }
