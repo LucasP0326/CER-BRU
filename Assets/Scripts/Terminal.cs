@@ -16,6 +16,7 @@ public class Terminal : MonoBehaviour
     public TextMeshProUGUI email4;
     public TextMeshProUGUI deletedMessage;
     public bool emailsDeleted = false;
+    public bool emailsSaved = false;
     public int informationValue = 0;
     public GameObject player;
     public bool screenOpen = false;
@@ -171,11 +172,22 @@ public class Terminal : MonoBehaviour
 
     public void DeleteEmails()
     {
-        if (emailsDeleted == false)
+        if (emailsDeleted == false && emailsSaved == false)
         {
             player.GetComponent<Player>().DeleteInformation(informationValue);
         }
         emailsDeleted = true;
+        Resume();
+    }
+
+    public void SaveEmails()
+    {
+        if (emailsDeleted == false && emailsSaved == false)
+        {
+            player.GetComponent<Player>().SaveInformation(informationValue);
+        }
+        emailsSaved = true;
+
         Resume();
     }
 

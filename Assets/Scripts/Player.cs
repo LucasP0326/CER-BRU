@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public Material opaqueMat;
     public GameObject Mesh;
     public int informationDeleted = 0;
+    public int informationSaved = 0;
+    public int killCount = 0;
 
     private void Start()
     {
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (hasGun && Input.GetButtonDown("Aim"))
+        else if (hasGun && Input.GetButtonUp("Aim"))
         {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = false;
@@ -207,5 +209,15 @@ public class Player : MonoBehaviour
     public void DeleteInformation(int informationValue)
     {
         informationDeleted += informationValue;
+    }
+
+    public void SaveInformation(int informationValue)
+    {
+        informationSaved += informationValue;
+    }
+
+    public void UpdateKillCount()
+    {
+        killCount += 1;
     }
 }

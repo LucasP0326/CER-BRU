@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 32a889ab766724c2987e1f4a77e0945c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32a889ab766724c2987e1f4a77e0945c,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 32a889ab766724c2987e1f4a77e0945c,
         type: 3}
       propertyPath: m_Name
-      value: roundtable
+      value: roundtable Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -96,6 +96,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 390097774650742331}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32a889ab766724c2987e1f4a77e0945c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4123324327157016974}
   m_SourcePrefab: {fileID: 100100000, guid: 32a889ab766724c2987e1f4a77e0945c, type: 3}
 --- !u!1 &3445627301402015888 stripped
 GameObject:
@@ -124,3 +128,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.027130114, y: 0.008688099, z: 0.027130114}
   m_Center: {x: 0, y: -0.0033174905, z: 0}
+--- !u!208 &4123324327157016974
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445627301402015888}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.014, y: 0.004, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.003, z: 0}
+  m_TimeToStationary: 0.5

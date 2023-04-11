@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class WinReception : MonoBehaviour
 {
-    public bool receptionWon = false;
+    public static bool receptionWon;
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Office");
         receptionWon = true;
+        SceneManager.LoadScene("Office");
     }
 }

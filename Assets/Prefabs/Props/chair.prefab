@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3707113813697882744}
   - component: {fileID: 7152241702065720175}
   - component: {fileID: 14404645691717188}
+  - component: {fileID: 6192538662315805871}
   m_Layer: 0
   m_Name: chair
   m_TagString: Wall
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9206712617242670736
 MeshFilter:
@@ -171,3 +172,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.010000011, y: 0.010118358, z: 0.0018989115}
   m_Center: {x: 0, y: 0.000059177873, z: -0.004050557}
+--- !u!208 &6192538662315805871
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949690602553489679}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0050000004, y: 0.0050000004, z: 0.0050000004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

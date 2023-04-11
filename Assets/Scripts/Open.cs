@@ -15,6 +15,8 @@ public class Open : MonoBehaviour
     public bool locked = false;
     public TextMeshProUGUI textObject;
     public float timeDelay;
+    public bool usedLockedDoor = false;
+    public bool openedLockedDoor = false;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class Open : MonoBehaviour
             if (locked == true && keyCard.hasKey == true)
             {
                 locked = false;
+                openedLockedDoor = true;
                 keyPad.GetComponent<MeshRenderer>().material = successMat;
                 hinge.Play ();
                 elevator.Play ();
@@ -83,6 +86,7 @@ public class Open : MonoBehaviour
     IEnumerator Wait()
     {
         textObject.enabled = true;
+        usedLockedDoor = true;
         textObject.text = "THIS DOOR IS LOCKED";
         timeDelay = 3f;
         yield return new WaitForSeconds(timeDelay);

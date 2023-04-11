@@ -31,22 +31,69 @@ public class Enemy : MonoBehaviour
     bool alreadyAttacked;
     public int attackDamage;
 
-    Animator animator;
+    public Animator animator;
 
     bool invisibled;
 
     bool alive = true;
 
+    bool xrayed;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
-        if (waypoints.Length > 0) ChooseWaypoint();
         animator = GetComponent<Animator>();
+        if (waypoints.Length > 0) ChooseWaypoint();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X)){
+            if (!xrayed)
+            {
+                gameObject.layer = 6;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 6;
+                }
+                xrayed = true;
+            }
+            else
+            {
+                gameObject.layer = 0;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 0;
+                }
+                xrayed = false;
+            }
+        }
+            //Controller
+        if (Input.GetButtonDown("Use")){
+            if (!xrayed)
+            {
+                gameObject.layer = 6;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 6;
+                }
+                xrayed = true;
+            }
+            else
+            {
+                gameObject.layer = 0;
+                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
+                foreach (var child in children)
+                {
+                    child.gameObject.layer = 0;
+                }
+                xrayed = false;
+            }
+        }
         //Test if player is in fov
         if (!player.GetComponent<Player>().invisible && alive)
         {
@@ -71,18 +118,27 @@ public class Enemy : MonoBehaviour
         if (seenPlayer) //if player has been seen lately
         {
             //follow player
-            Vector3 dirToPlayer = transform.position - player.transform.position;
-            Vector3 newPos = transform.position - dirToPlayer;
-            agent.SetDestination(newPos);
-            animator.SetTrigger("Walk");
 
             float distance = Vector3.Distance (transform.position, player.transform.position);
-            if (distance <= 1) AttackPlayer();
+
+            Vector3 dirToPlayer = transform.position - player.transform.position;
+            Vector3 newPos = transform.position - dirToPlayer;
+
+            if (distance >= 1){
+                agent.SetDestination(newPos);
+                animator.SetTrigger("Walk");
+            }
+            else{
+                agent.SetDestination(transform.position);
+                animator.SetTrigger("Idle");
+            }
+
+            if (distance <= 1.5) AttackPlayer();
         }
         else
         {
             //patrol points
-            if (Vector3.Distance(transform.position, target) < 2)
+            if (Vector3.Distance(transform.position, target) < 1)
             {
                 ChooseWaypoint();
                 animator.SetTrigger("Walk");
@@ -94,12 +150,21 @@ public class Enemy : MonoBehaviour
         waypointIndex = Random.Range(0, waypoints.Length);
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
+        animator.SetTrigger("Walk");
     }
 
     void FieldOfViewCheck()
     {
+        //is the player next to the enemy
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 1, targetMask);
+        if (rangeChecks.Length != 0){
+            seesPlayer = true;
+            seenPlayer = true;
+            StopAllCoroutines();
+        }
+        
         //Is the player within view distance, and doens't have invisibility active?
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
@@ -168,9 +233,9 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Attack");
             player.GetComponent<Player>().health -= attackDamage;
             if (player.GetComponent<Player>().health == 0) player.GetComponent<Player>().Death();
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke(nameof(FinishAttackAnim), 0.5f);
         }
     }
         private void ResetAttack()
@@ -180,9 +245,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (!player.GetComponent<Player>().invisible && alive){
+        seesPlayer = true;
+        seenPlayer = true;
+        StopAllCoroutines();
         health -= damage;
-
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        }
     }
     private void DestroyEnemy()
     {
@@ -191,6 +260,14 @@ public class Enemy : MonoBehaviour
         seesPlayer = false;
         seenPlayer = false;
         animator.SetTrigger("Death");
-        alive = false;
+        if (alive == true)
+            player.GetComponent<Player>().UpdateKillCount();
+        alive = false; //For some reason this is really fucking funny
+    }
+
+    private void FinishAttackAnim()
+    {
+        float distance = Vector3.Distance (transform.position, player.transform.position);
+        //if (distance <= 1.5) Debug.Log("HIT");
     }
 }
