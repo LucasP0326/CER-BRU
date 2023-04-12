@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: storagecabniet_open Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdaa4fa6b654642828b20eb83752e4de,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 1282219121056404672, guid: bdaa4fa6b654642828b20eb83752e4de,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

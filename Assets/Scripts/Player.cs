@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public bool hasGun;
-    private GameObject gun;
-    public int health;
-
     //ADS
     public GameObject followCamera;
     private float defaultZoom;
@@ -19,21 +15,39 @@ public class Player : MonoBehaviour
     
     //pickups
     bool standingOnPickup;
-    GameObject pickupUnderPlayer;
+    public GameObject pickupUnderPlayer;
+    
+    //invisibility
     private bool invisibilityUsable;
     public bool invisible;
     public int invisibilityLength;
     public int invisibilityCooldown;
     public GameObject invisiblityIcon;
 
-    public GameObject restingGunPosition;
-    public GameObject aimingGunPosition;
+    //xray
+    private bool xrayUsable;
+    public bool xray;
+    public int xrayLength;
+    public int xrayCooldown;
+    public GameObject xrayIcon;
     public Material transparentMat;
     public Material opaqueMat;
     public GameObject Mesh;
+
+    private GameObject[] enemies;
+
+    //gun
+    public GameObject restingGunPosition;
+    public GameObject aimingGunPosition;
+    public bool hasGun;
+    private GameObject gun;
+
+    //score
+
     public int informationDeleted = 0;
     public int informationSaved = 0;
     public int killCount = 0;
+    public int health;
 
     private void Start()
     {
@@ -44,6 +58,8 @@ public class Player : MonoBehaviour
         {
             gun = GameObject.FindWithTag("Gun");
         }
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     private void Update()
@@ -91,24 +107,29 @@ public class Player : MonoBehaviour
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.E) && standingOnPickup)
+        //collect pickup
+        if ((Input.GetKey(KeyCode.E) || Input.GetButtonDown("Interact")) && standingOnPickup)
         {
+            //invisibility
+            if (pickupUnderPlayer.tag == "Invisibility"){
+                invisibilityUsable = true;
+                invisiblityIcon.SetActive(true);
+                invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
+            }
+
+            //xray
+            if (pickupUnderPlayer.tag == "Xray"){
+                xrayUsable = true;
+                xrayIcon.SetActive(true);
+                xrayIcon.GetComponent<XrayIcon>().Ready();
+            }
+
             standingOnPickup = false;
             Destroy(pickupUnderPlayer);
-            invisibilityUsable = true;
-            invisiblityIcon.SetActive(true);
-            invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
-        }
-        if (Input.GetButtonDown("Interact") && standingOnPickup) //CONTROLLER
-         {
-            standingOnPickup = false;
-            Destroy(pickupUnderPlayer);
-            invisibilityUsable = true;
-            invisiblityIcon.SetActive(true);
-            invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
         }
 
-        if (Input.GetKey(KeyCode.F) && invisibilityUsable)
+        //use invisibliity
+        if ((Input.GetKey(KeyCode.F) || Input.GetButtonDown("Use")) && invisibilityUsable)
         {
             invisibilityUsable = false;
             playerInvisible();
@@ -116,13 +137,15 @@ public class Player : MonoBehaviour
             StartCoroutine(InvisibilityCountdown());
             invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
-        if (Input.GetButtonDown("Use") && invisibilityUsable) //CONTROLLER
+
+        //use xray (needs controller keybind)
+        if (Input.GetKey(KeyCode.C) && xrayUsable)
         {
-            invisibilityUsable = false;
-            playerInvisible();
-            invisible = true;
-            StartCoroutine(InvisibilityCountdown());
-            invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
+            xrayUsable = false;
+            xrayOn();
+            xray = true;
+            StartCoroutine(XrayCountdown());
+            xrayIcon.GetComponent<XrayIcon>().CoolDown();
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -139,7 +162,7 @@ public class Player : MonoBehaviour
             hasGun = true;
         }
 
-        if (collision.gameObject.tag == "Invisibility")
+        if (collision.gameObject.tag == "Invisibility" || collision.gameObject.tag == "Xray")
         {
             standingOnPickup = true;
             pickupUnderPlayer = collision.gameObject;
@@ -148,7 +171,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "Invisibility")
+        if (collision.gameObject.tag == "Invisibility" || collision.gameObject.tag == "Xray")
         {
             standingOnPickup = false;
             pickupUnderPlayer = null;
@@ -187,17 +210,71 @@ public class Player : MonoBehaviour
         invisibilityUsable = true;
     }
 
+        private IEnumerator XrayCountdown()
+    {
+        yield return new WaitForSeconds(xrayLength - 3);
+        
+        xrayOn();
+        yield return new WaitForSeconds(0.5f);
+        xrayOff();
+        yield return new WaitForSeconds(0.5f);
+        xrayOn();
+        yield return new WaitForSeconds(0.5f);
+        xrayOff();
+
+        yield return new WaitForSeconds(0.25f);
+        xrayOn();
+        yield return new WaitForSeconds(0.25f);
+        xrayOff();
+        yield return new WaitForSeconds(0.25f);
+        xrayOn();
+        yield return new WaitForSeconds(0.25f);
+        xrayOff();
+        yield return new WaitForSeconds(0.25f);
+        xrayOn();
+        yield return new WaitForSeconds(0.25f);
+        xrayOff();
+        
+        xray = false;
+
+        yield return new WaitForSeconds(xrayCooldown);
+        xrayIcon.GetComponent<XrayIcon>().Ready();
+        xrayUsable = true;
+    }
+
+
     private void playerInvisible()
     {
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[0].CopyPropertiesFromMaterial(transparentMat);
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[1].CopyPropertiesFromMaterial(transparentMat);
-        Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(transparentMat);
+        //Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(transparentMat);
     }
     private void playerVisible()
     {
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[0].CopyPropertiesFromMaterial(opaqueMat);
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[1].CopyPropertiesFromMaterial(opaqueMat);
-        Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(opaqueMat);
+        //Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(opaqueMat);
+    }
+
+    private void xrayOn(){
+        foreach (GameObject enemy in enemies){
+            enemy.layer = 6;
+            var children = enemy.transform.GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = 6;
+            }
+        }
+    }
+    private void xrayOff(){
+        foreach (GameObject enemy in enemies){
+            enemy.layer = 0;
+            var children = enemy.transform.GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = 0;
+            }
+        }
     }
 
     public void Death()

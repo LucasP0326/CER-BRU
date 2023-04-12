@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7660301352206990922}
   m_Layer: 11
   m_Name: Hinge 1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +78,8 @@ MonoBehaviour:
   locked: 0
   textObject: {fileID: 0}
   timeDelay: 0
+  usedLockedDoor: 0
+  openedLockedDoor: 0
 --- !u!111 &7660301352206990922
 Animation:
   m_ObjectHideFlags: 0

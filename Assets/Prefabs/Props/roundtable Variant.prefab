@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: roundtable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32a889ab766724c2987e1f4a77e0945c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

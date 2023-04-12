@@ -49,51 +49,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X)){
-            if (!xrayed)
-            {
-                gameObject.layer = 6;
-                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
-                foreach (var child in children)
-                {
-                    child.gameObject.layer = 6;
-                }
-                xrayed = true;
-            }
-            else
-            {
-                gameObject.layer = 0;
-                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
-                foreach (var child in children)
-                {
-                    child.gameObject.layer = 0;
-                }
-                xrayed = false;
-            }
-        }
-            //Controller
-        if (Input.GetButtonDown("Use")){
-            if (!xrayed)
-            {
-                gameObject.layer = 6;
-                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
-                foreach (var child in children)
-                {
-                    child.gameObject.layer = 6;
-                }
-                xrayed = true;
-            }
-            else
-            {
-                gameObject.layer = 0;
-                var children = transform.GetComponentsInChildren<Transform>(includeInactive: true);
-                foreach (var child in children)
-                {
-                    child.gameObject.layer = 0;
-                }
-                xrayed = false;
-            }
-        }
         //Test if player is in fov
         if (!player.GetComponent<Player>().invisible && alive)
         {
@@ -118,7 +73,6 @@ public class Enemy : MonoBehaviour
         if (seenPlayer) //if player has been seen lately
         {
             //follow player
-
             float distance = Vector3.Distance (transform.position, player.transform.position);
 
             Vector3 dirToPlayer = transform.position - player.transform.position;
@@ -249,6 +203,11 @@ public class Enemy : MonoBehaviour
         seesPlayer = true;
         seenPlayer = true;
         StopAllCoroutines();
+        StartCoroutine(ForgetPlayer());
+        float distance = Vector3.Distance (transform.position, player.transform.position);
+
+        Vector3 dirToPlayer = transform.position - player.transform.position;
+        Vector3 newPos = transform.position - dirToPlayer;
         health -= damage;
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
         }
