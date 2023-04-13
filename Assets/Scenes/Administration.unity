@@ -27448,7 +27448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1829194049}
   - component: {fileID: 1829194051}
-  - component: {fileID: 1829194050}
   m_Layer: 5
   m_Name: Transmission
   m_TagString: Untagged
@@ -27477,31 +27476,6 @@ RectTransform:
   m_AnchoredPosition: {x: -150.19568, y: -50}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1829194050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829194048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2141a7b4d4423444cb07486bdf5b5365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 2119960558}
-  caller: {fileID: 151535218}
-  transmission: {fileID: 880871449}
-  timeDelay: 0
-  timeDelay2: 0
-  timeDelay3: 0
-  hasSprinted: 0
-  hasAccessedTerminal: 0
-  showedDoorTutorial: 0
-  showedDoorTutorial2: 0
-  showedEnemyTutorial: 0
-  player: {fileID: 0}
-  door: {fileID: 0}
 --- !u!222 &1829194051
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -147,6 +147,14 @@ public class Player : MonoBehaviour
             StartCoroutine(XrayCountdown());
             xrayIcon.GetComponent<XrayIcon>().CoolDown();
         }
+        if (Input.GetButtonDown("Use") && xrayUsable)
+         {
+            xrayUsable = false;
+            xrayOn();
+            xray = true;
+            StartCoroutine(XrayCountdown());
+            xrayIcon.GetComponent<XrayIcon>().CoolDown();
+        }
     }
     private void OnTriggerEnter(Collider collision)
     {
