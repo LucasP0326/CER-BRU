@@ -33,5 +33,10 @@ public class AdministrationEventManager : MonoBehaviour
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
+        dialogue.text = "You have reached the administrative offices, operative.";
+        yield return new WaitForSeconds(timeDelay);
+        dialogue.text = "Your objective here remains the same.  Clear the area, and wipe as much information pertinent to CERAEBRU operations as possible.";
+        yield return new WaitForSeconds(timeDelay);
+        transmission.SetActive(false);
     }
 }
