@@ -91,6 +91,7 @@ public class ReceptionDialogue : MonoBehaviour
         transmission.SetActive(false);
     }
 
+    //Terminal Tutorial
     IEnumerator TerminalWait()
     {
         timeDelay3 = 90f;
@@ -106,6 +107,7 @@ public class ReceptionDialogue : MonoBehaviour
         transmission.SetActive(false);
     }
 
+    //Locked Door Tutorial
     IEnumerator DoorWait()
     {
         transmission.SetActive(true);
@@ -116,6 +118,8 @@ public class ReceptionDialogue : MonoBehaviour
         transmission.SetActive(false);
     }
 
+
+    //Enemy Tutorial
     IEnumerator DoorWait2()
     {
         transmission.SetActive(true);
@@ -126,6 +130,8 @@ public class ReceptionDialogue : MonoBehaviour
         transmission.SetActive(false);
     }
 
+
+    //Killed all Enemies
     IEnumerator EnemyWait()
     {
         transmission.SetActive(true);
