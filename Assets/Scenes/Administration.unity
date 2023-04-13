@@ -20506,6 +20506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2043590879}
+  - {fileID: 1610641685}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20639,6 +20640,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+--- !u!1 &1402827284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1402827283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1403512149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24643,6 +24650,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606956856}
   m_CullTransparentMesh: 1
+--- !u!1 &1610641684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610641685}
+  - component: {fileID: 1610641686}
+  m_Layer: 0
+  m_Name: 548231__max2587__glass-3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1610641685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610641684}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.691367, y: -0.5307903, z: -23.43699}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1392663404}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1610641686
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610641684}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7f9ccfa592d372d4091960d9e17bf8d4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1611970719
 GameObject:
   m_ObjectHideFlags: 0
@@ -35168,7 +35303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbed75c73d433847b601b322ccceb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followCamera: {fileID: 19880843}
+  followCamera: {fileID: 1402827284}
   ADSZoom: 20
   pickupUnderPlayer: {fileID: 0}
   invisible: 0
@@ -41801,6 +41936,106 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2510032564173730742, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564332747678, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564383145577, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564504412228, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564532694859, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564539418448, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564630039571, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564771185263, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032564968678520, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565330192087, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565387279250, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565455503909, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565548956183, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565660167335, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565675826388, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565680098553, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032565731381519, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032566099737666, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032566113986924, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
+    - target: {fileID: 2510032566207157433, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: glassBreak
+      value: 
+      objectReference: {fileID: 1610641686}
     - target: {fileID: 2580272313411530012, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: key
@@ -41899,7 +42134,7 @@ PrefabInstance:
     - target: {fileID: 3202495461127586794, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461176935965, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -41909,7 +42144,7 @@ PrefabInstance:
     - target: {fileID: 3202495461176935965, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461337017909, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -41919,7 +42154,7 @@ PrefabInstance:
     - target: {fileID: 3202495461337017909, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461350470032, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -41929,7 +42164,7 @@ PrefabInstance:
     - target: {fileID: 3202495461350470032, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461441092307, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -41939,13 +42174,18 @@ PrefabInstance:
     - target: {fileID: 3202495461441092307, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461475032519, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495461475032519, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495461513859784, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -41954,13 +42194,18 @@ PrefabInstance:
     - target: {fileID: 3202495461513859784, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495461746196460, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495461746196460, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495462085573115, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -41969,13 +42214,18 @@ PrefabInstance:
     - target: {fileID: 3202495462085573115, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495462201663398, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495462201663398, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495462269904401, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -41984,13 +42234,18 @@ PrefabInstance:
     - target: {fileID: 3202495462269904401, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495462328040276, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495462328040276, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495462446829946, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -41999,13 +42254,18 @@ PrefabInstance:
     - target: {fileID: 3202495462446829946, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495462462655628, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495462462655628, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495462518210903, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -42014,13 +42274,18 @@ PrefabInstance:
     - target: {fileID: 3202495462518210903, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495462533886244, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3202495462533886244, guid: c9ee5d1d896ae1a459d84858b01b51b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Glass
+      objectReference: {fileID: 0}
     - target: {fileID: 3202495462577989524, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_Layer
@@ -42029,7 +42294,7 @@ PrefabInstance:
     - target: {fileID: 3202495462577989524, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495463060621626, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -42039,7 +42304,7 @@ PrefabInstance:
     - target: {fileID: 3202495463060621626, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495463086699759, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -42049,7 +42314,7 @@ PrefabInstance:
     - target: {fileID: 3202495463086699759, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495463101997505, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
@@ -42059,7 +42324,7 @@ PrefabInstance:
     - target: {fileID: 3202495463101997505, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Glass
       objectReference: {fileID: 0}
     - target: {fileID: 3202495463134169142, guid: c9ee5d1d896ae1a459d84858b01b51b6,
         type: 3}

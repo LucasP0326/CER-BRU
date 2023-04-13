@@ -49,9 +49,16 @@ public class Player : MonoBehaviour
     public int killCount = 0;
     public int health;
 
+    //prone
+    public bool prone;
+    public GameObject visibleMesh;
+    public GameObject playerCameraRoot;
+    public bool infrontOfVent;
+    private GameObject ventInterior;
+    private GameObject ventExterior;
+
     private void Start()
     {
-        followCamera = GameObject.FindWithTag("Camera");
         defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
 
         if (hasGun)
@@ -138,6 +145,10 @@ public class Player : MonoBehaviour
             invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
 
+        if (Input.GetKeyDown(KeyCode.X) && infrontOfVent){
+            GoProne();
+        }
+
         //use xray (needs controller keybind)
         if (Input.GetKey(KeyCode.C) && xrayUsable)
         {
@@ -175,6 +186,15 @@ public class Player : MonoBehaviour
             standingOnPickup = true;
             pickupUnderPlayer = collision.gameObject;
         }
+
+        if (collision.gameObject.tag == "VentEntrance"){
+           infrontOfVent = true;
+           ventInterior = collision.GetComponent<Vent>().InsidePoint;
+           ventExterior = collision.GetComponent<Vent>().OutsidePoint;
+            if (prone){
+                GoProne();
+            }
+        }
     }
 
     private void OnTriggerExit(Collider collision)
@@ -183,6 +203,11 @@ public class Player : MonoBehaviour
         {
             standingOnPickup = false;
             pickupUnderPlayer = null;
+        }
+
+        if (collision.gameObject.tag == "VentEntrance"){
+            infrontOfVent = false;
+            ventInterior = null;
         }
     }
 
@@ -304,5 +329,41 @@ public class Player : MonoBehaviour
     public void UpdateKillCount()
     {
         killCount += 1;
+    }
+
+    public void GoProne(){
+        
+        //infrontOfVent = false;
+        var cameraVars = followCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+
+        if (!prone){ //going prone
+            infrontOfVent = false;
+            prone = true;
+            cameraVars.CameraDistance = 0;
+            cameraVars.ShoulderOffset = new Vector3(0f, 0f, 0f);
+            playerCameraRoot.transform.localPosition = new Vector3(0f, 1f, 0f);
+            gameObject.GetComponent<ThirdPersonController>().aiming = true;
+            gameObject.GetComponent<CharacterController>().height = 0f;
+            restingGunPosition.SetActive(false);
+            visibleMesh.SetActive(false);
+            GetComponent<ThirdPersonController>().JumpHeight = 0f;
+            gameObject.GetComponent<CharacterController>().enabled = false;
+            gameObject.transform.position = ventInterior.transform.position;
+            gameObject.GetComponent<CharacterController>().enabled = true;
+        }
+        else{ //standing up
+            prone = false;
+            gameObject.GetComponent<CharacterController>().enabled = false;
+            gameObject.transform.position = ventExterior.transform.position;
+            gameObject.GetComponent<CharacterController>().enabled = true;
+            cameraVars.CameraDistance = 1.5f;
+            cameraVars.ShoulderOffset = new Vector3(2f, 0.2f, 0f);
+            playerCameraRoot.transform.localPosition = new Vector3(0f, 1.375f, 0f);
+            gameObject.GetComponent<ThirdPersonController>().aiming = false;
+            gameObject.GetComponent<CharacterController>().height = 1.8f;
+            restingGunPosition.SetActive(true);
+            visibleMesh.SetActive(true);
+            GetComponent<ThirdPersonController>().JumpHeight = 1.2f;
+        }
     }
 }

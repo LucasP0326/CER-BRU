@@ -23347,6 +23347,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+--- !u!1 &1402827284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1402827283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1439216762
 GameObject:
   m_ObjectHideFlags: 0
@@ -30724,7 +30730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbed75c73d433847b601b322ccceb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followCamera: {fileID: 0}
+  followCamera: {fileID: 1402827284}
   ADSZoom: 20
   pickupUnderPlayer: {fileID: 0}
   invisible: 0
