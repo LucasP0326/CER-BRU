@@ -24754,6 +24754,8 @@ MonoBehaviour:
   showedEnemyTutorial: 0
   player: {fileID: 283017369}
   door: {fileID: 321155776}
+  music: {fileID: 1395750813}
+  dialogueActive: 0
 --- !u!1 &1551916721
 GameObject:
   m_ObjectHideFlags: 0
@@ -30733,6 +30735,7 @@ MonoBehaviour:
   followCamera: {fileID: 1402827284}
   ADSZoom: 20
   pickupUnderPlayer: {fileID: 0}
+  invisibilityUsable: 0
   invisible: 0
   invisibilityLength: 10
   invisibilityCooldown: 30
@@ -30751,6 +30754,10 @@ MonoBehaviour:
   informationSaved: 0
   killCount: 0
   health: 10
+  prone: 0
+  visibleMesh: {fileID: 0}
+  playerCameraRoot: {fileID: 0}
+  infrontOfVent: 0
 --- !u!4 &1762682273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544,

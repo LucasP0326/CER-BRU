@@ -9,7 +9,10 @@ public class WinReception : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        receptionWon = true;
-        SceneManager.LoadScene("Office");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            receptionWon = true;
+            SceneManager.LoadScene("Office");
+        }
     }
 }

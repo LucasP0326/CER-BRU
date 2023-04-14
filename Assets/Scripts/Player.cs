@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public GameObject pickupUnderPlayer;
     
     //invisibility
-    private bool invisibilityUsable;
+    public bool invisibilityUsable;
     public bool invisible;
     public int invisibilityLength;
     public int invisibilityCooldown;
@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator InvisibilityCountdown()
+    public IEnumerator InvisibilityCountdown()
     {
         yield return new WaitForSeconds(invisibilityLength - 3);
         

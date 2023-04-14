@@ -9,7 +9,10 @@ public class WinAdministration : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Office");
-        adminWon = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            adminWon = true;
+            SceneManager.LoadScene("Office");
+        }
     }
 }

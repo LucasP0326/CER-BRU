@@ -20,11 +20,14 @@ public class ReceptionDialogue : MonoBehaviour
     public bool showedEnemyTutorial = false;
     public GameObject player;
     public GameObject door;
+    public AudioSource music;
+    public bool dialogueActive = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        dialogueActive = false;
         transmission.SetActive(false);
         StartCoroutine(Wait());
         StartCoroutine(SprintWait());
@@ -40,28 +43,37 @@ public class ReceptionDialogue : MonoBehaviour
         if (player.GetComponent<Player>().informationDeleted > 0 || player.GetComponent<Player>().informationSaved > 0)
             hasAccessedTerminal = true;
 
-        if (door.GetComponent<Open>().usedLockedDoor == true && showedDoorTutorial == false)
+        if (door.GetComponent<Open>().usedLockedDoor == true && showedDoorTutorial == false && dialogueActive == false)
         {
             StartCoroutine(DoorWait());
             showedDoorTutorial = true;
         }
 
-        if (door.GetComponent<Open>().openedLockedDoor == true && showedDoorTutorial2 == false)
+        if (door.GetComponent<Open>().openedLockedDoor == true && showedDoorTutorial2 == false && dialogueActive == false)
         {
             StartCoroutine(DoorWait2());
             showedDoorTutorial2 = true;
         }
 
-        if (player.GetComponent<Player>().killCount == 3 && showedEnemyTutorial == false)
+        if (player.GetComponent<Player>().killCount == 3 && showedEnemyTutorial == false && dialogueActive == false)
         {
             StartCoroutine(EnemyWait());
             showedEnemyTutorial = true;
+        }
+        if (dialogueActive == true)
+        {
+            music.GetComponent<AudioSource>().volume = 0.25f;
+        }
+        if (dialogueActive == false)
+        {
+            music.GetComponent<AudioSource>().volume = 1f;
         }
     }
 
     //Reception Opening Transmission
     IEnumerator Wait()
     {
+        dialogueActive = true;
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(true);
@@ -73,14 +85,16 @@ public class ReceptionDialogue : MonoBehaviour
         dialogue.text = "Make your way through the reception area, and remember your objective: clear out any hostiles and erase any sensitive information from the terminals.";
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 
     //Sprint Tutorial Prompt
     IEnumerator SprintWait()
     {
         timeDelay2 = 60f;
+        dialogueActive = true;
         yield return new WaitForSeconds(timeDelay2);
-        if (hasSprinted == false)
+        if (hasSprinted == false && dialogueActive == false)
         {
             transmission.SetActive(true);
             caller.text = "CERAEBRU SECURITY DISPATCH";
@@ -89,14 +103,16 @@ public class ReceptionDialogue : MonoBehaviour
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 
     //Terminal Tutorial
     IEnumerator TerminalWait()
     {
         timeDelay3 = 90f;
+        dialogueActive = true;
         yield return new WaitForSeconds(timeDelay3);
-        if (hasAccessedTerminal == false)
+        if (hasAccessedTerminal == false && dialogueActive == false)
         {
             transmission.SetActive(true);
             caller.text = "CERAEBRU SECURITY DISPATCH";
@@ -105,40 +121,47 @@ public class ReceptionDialogue : MonoBehaviour
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 
     //Locked Door Tutorial
     IEnumerator DoorWait()
     {
+        dialogueActive = true;
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "This door is locked, operative.  You won’t be able to access it without proper authorization.  Search your surroundings for a proper keycard.  The terminal entries may hint at where to find them if you haven’t yet wiped them.";
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 
 
     //Enemy Tutorial
     IEnumerator DoorWait2()
     {
+        dialogueActive = true;
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "Careful, operative.  These are the rogue experiments you’ve been warned about.  Use your service weapon to dispatch them.  Aim by holding down the ‘Aim’ button and fire with the ‘Fire’ button.";
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 
 
     //Killed all Enemies
     IEnumerator EnemyWait()
     {
+        dialogueActive = true;
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "Good work, operative.  This area is clear.  Enter the elevator to access the security wing.  We can make further plans from there.";
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
     }
 }
