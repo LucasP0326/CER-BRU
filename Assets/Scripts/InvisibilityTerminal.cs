@@ -21,6 +21,8 @@ public class InvisibilityTerminal : MonoBehaviour
     public GameObject player;
     public bool screenOpen = false;
     public GameObject downloadButton;
+    public GameObject invisiblityIcon;
+    public static bool collectedInvisibility = false;
 
     // Start is called before the first frame update
     void Start()
@@ -205,6 +207,9 @@ public class InvisibilityTerminal : MonoBehaviour
     public void DownloadInvisibility()
     {
         player.GetComponent<Player>().invisibilityUsable = true;
+        player.GetComponent<Player>().invisiblityIcon.SetActive(true);
+        invisiblityIcon.GetComponent<InvisibilityIcon>().Ready();
+        collectedInvisibility = true;
     }
 
     public void Close()

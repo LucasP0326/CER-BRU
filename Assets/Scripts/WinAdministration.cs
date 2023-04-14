@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WinAdministration : MonoBehaviour
 {
-    public bool adminWon = false;
+    public static bool adminWon = false;
 
     private void OnTriggerEnter(Collider other)
     {

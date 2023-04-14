@@ -40,7 +40,7 @@ public class ReceptionDialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
             hasSprinted = true;
 
-        if (player.GetComponent<Player>().informationDeleted > 0 || player.GetComponent<Player>().informationSaved > 0)
+        if (Player.informationDeleted > 0 || Player.informationSaved > 0)
             hasAccessedTerminal = true;
 
         if (door.GetComponent<Open>().usedLockedDoor == true && showedDoorTutorial == false && dialogueActive == false)

@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
 
     //score
 
-    public int informationDeleted = 0;
-    public int informationSaved = 0;
+    public static int informationDeleted = 0;
+    public static int informationSaved = 0;
     public int killCount = 0;
     public int health;
 

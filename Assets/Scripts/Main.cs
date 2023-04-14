@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject globalVariables;
+
     public void StartGame() 
     {
+        globalVariables.GetComponent<GlobalVariables>().informationDeleted = 0;
+        globalVariables.GetComponent<GlobalVariables>().informationDeleted = 0;
+        globalVariables.GetComponent<GlobalVariables>().receptionWon = false;
+        globalVariables.GetComponent<GlobalVariables>().adminWon = false;
+        globalVariables.GetComponent<GlobalVariables>().labsWon = false;
+        globalVariables.GetComponent<GlobalVariables>().collectedInvisibility = false;
+        Player.informationDeleted = 0;
+        Player.informationSaved = 0;
         SceneManager.LoadScene(1);
     }
 
