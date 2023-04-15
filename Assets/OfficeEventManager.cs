@@ -30,6 +30,10 @@ public class OfficeEventManager : MonoBehaviour
         {
             StartCoroutine(AdministrationWon());
         }
+        if (globalVariables.GetComponent<GlobalVariables>().labsWon == true)
+        {
+            StartCoroutine(LabsWon());
+        }
     }
 
     // Update is called once per frame
@@ -92,6 +96,25 @@ public class OfficeEventManager : MonoBehaviour
         {
             dialogue.text = "Good work as well in properly wiping information from company terminals.  Corporate will be pleased.  Continue your mission with such diligence, and there’ll be good things coming your way.";
         }
+        yield return new WaitForSeconds(timeDelay);
+        transmission.SetActive(false);
+        dialogueActive = false;
+    }
+
+    IEnumerator LabsWon()
+    {
+        dialogueActive = true;
+        timeDelay = 5f;
+        yield return new WaitForSeconds(timeDelay);
+        transmission.SetActive(true);
+        caller.text = "CERAEBRU SECURITY DISPATCH";
+        dialogue.text = "Operative,…connection is…spotty…right now.";
+        yield return new WaitForSeconds(timeDelay);
+        dialogue.text = "Something is…interfering with…transmission.";
+        yield return new WaitForSeconds(timeDelay);
+        dialogue.text = "I’m reading…multiple signatures…honing in on your location.  The security wing has been…breached.";
+        yield return new WaitForSeconds(timeDelay);
+        dialogue.text = "Operative, run.";
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
         dialogueActive = false;
