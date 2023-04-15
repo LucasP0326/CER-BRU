@@ -99,13 +99,16 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        //Controller require attention here, aim stuck and won't toggle like PC does
+
         if (hasGun && Input.GetButtonDown("Aim")) 
         {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = true;
             gun.GetComponent<ProjectileGun>().aiming = true;
 
+            if (!prone) gun.transform.parent = aimingGunPosition.transform;
+            else gun.transform.parent = proneAimingGunPosition.transform;
+           
             gun.transform.parent = aimingGunPosition.transform;
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -152,21 +155,12 @@ public class Player : MonoBehaviour
             invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
 
-        if (Input.GetKeyDown(KeyCode.X) && infrontOfVent){
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Crouch") && infrontOfVent){
             GoProne();
         }
 
-        //use xray (needs controller keybind)
-        if (Input.GetKey(KeyCode.C) && xrayUsable)
+        if (Input.GetKey(KeyCode.C) || Input.GetButtonDown("Use")  && xrayUsable)
         {
-            xrayUsable = false;
-            xrayOn();
-            xray = true;
-            StartCoroutine(XrayCountdown());
-            xrayIcon.GetComponent<XrayIcon>().CoolDown();
-        }
-        if (Input.GetButtonDown("Use") && xrayUsable)
-         {
             xrayUsable = false;
             xrayOn();
             xray = true;
