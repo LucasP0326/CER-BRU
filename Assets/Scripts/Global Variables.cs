@@ -28,6 +28,5 @@ public class GlobalVariables : MonoBehaviour
         collectedInvisibility = InvisibilityTerminal.collectedInvisibility;
         receptionWon = WinReception.receptionWon;
         adminWon = WinAdministration.adminWon;
-
     }
 }

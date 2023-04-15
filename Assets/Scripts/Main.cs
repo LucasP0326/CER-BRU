@@ -11,9 +11,9 @@ public class MainMenu : MonoBehaviour
     {
         globalVariables.GetComponent<GlobalVariables>().informationDeleted = 0;
         globalVariables.GetComponent<GlobalVariables>().informationDeleted = 0;
-        globalVariables.GetComponent<GlobalVariables>().receptionWon = false;
-        globalVariables.GetComponent<GlobalVariables>().adminWon = false;
-        globalVariables.GetComponent<GlobalVariables>().labsWon = false;
+        WinReception.receptionWon = false;
+        WinAdministration.adminWon = false;
+        InvisibilityTerminal.collectedInvisibility = false;
         globalVariables.GetComponent<GlobalVariables>().collectedInvisibility = false;
         Player.informationDeleted = 0;
         Player.informationSaved = 0;
