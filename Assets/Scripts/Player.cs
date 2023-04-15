@@ -57,6 +57,9 @@ public class Player : MonoBehaviour
     private GameObject ventInterior;
     private GameObject ventExterior;
 
+    public GameObject proneRestingGunPosition;
+    public GameObject proneAimingGunPosition;
+
     private void Start()
     {
         defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
@@ -78,7 +81,9 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<ThirdPersonController>().aiming = true;
             gun.GetComponent<ProjectileGun>().aiming = true;
 
-            gun.transform.parent = aimingGunPosition.transform;
+            if (!prone) gun.transform.parent = aimingGunPosition.transform;
+            else gun.transform.parent = proneAimingGunPosition.transform;
+
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
@@ -88,7 +93,9 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<ThirdPersonController>().aiming = false;
             gun.GetComponent<ProjectileGun>().aiming = false;
 
-            gun.transform.parent = restingGunPosition.transform;
+            if (!prone) gun.transform.parent = restingGunPosition.transform;
+            else gun.transform.parent = proneRestingGunPosition.transform;
+
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
@@ -335,6 +342,7 @@ public class Player : MonoBehaviour
         
         //infrontOfVent = false;
         var cameraVars = followCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+        float ADSZoomstore = ADSZoom;
 
         if (!prone){ //going prone
             infrontOfVent = false;
@@ -344,12 +352,18 @@ public class Player : MonoBehaviour
             playerCameraRoot.transform.localPosition = new Vector3(0f, 1f, 0f);
             gameObject.GetComponent<ThirdPersonController>().aiming = true;
             gameObject.GetComponent<CharacterController>().height = 0f;
-            restingGunPosition.SetActive(false);
             visibleMesh.SetActive(false);
             GetComponent<ThirdPersonController>().JumpHeight = 0f;
+            GetComponent<ThirdPersonController>().SprintSpeed = 2f;
             gameObject.GetComponent<CharacterController>().enabled = false;
             gameObject.transform.position = ventInterior.transform.position;
             gameObject.GetComponent<CharacterController>().enabled = true;
+
+            gun.transform.parent = proneRestingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            ADSZoom = 30f;
         }
         else{ //standing up
             prone = false;
@@ -361,9 +375,14 @@ public class Player : MonoBehaviour
             playerCameraRoot.transform.localPosition = new Vector3(0f, 1.375f, 0f);
             gameObject.GetComponent<ThirdPersonController>().aiming = false;
             gameObject.GetComponent<CharacterController>().height = 1.8f;
-            restingGunPosition.SetActive(true);
+            ADSZoom = ADSZoomstore;
             visibleMesh.SetActive(true);
             GetComponent<ThirdPersonController>().JumpHeight = 1.2f;
+            GetComponent<ThirdPersonController>().SprintSpeed = 5.335f;
+
+            gun.transform.parent = restingGunPosition.transform;
+            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
+            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }
