@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     //gun
     public GameObject restingGunPosition;
     public GameObject aimingGunPosition;
+    public GameObject miximoMesh;
+    public GameObject aimingModelPosition;
     public bool hasGun;
     private GameObject gun;
 
@@ -92,6 +94,8 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
+            miximoMesh.transform.parent = aimingModelPosition.transform;
+
             animator.SetBool("ADS",true);
         }
         else if (hasGun && Input.GetMouseButtonUp(1))
@@ -105,6 +109,8 @@ public class Player : MonoBehaviour
 
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            miximoMesh.transform.parent = gameObject.transform;
 
             animator.SetBool("ADS",false);
         }
@@ -168,11 +174,11 @@ public class Player : MonoBehaviour
             invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
 
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Crouch") && infrontOfVent){
+        if ((Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Crouch")) && infrontOfVent){
             GoProne();
         }
 
-        if (Input.GetKey(KeyCode.C) || Input.GetButtonDown("Use")  && xrayUsable)
+        if ((Input.GetKey(KeyCode.C) || Input.GetButtonDown("Use"))  && xrayUsable)
         {
             xrayUsable = false;
             xrayOn();

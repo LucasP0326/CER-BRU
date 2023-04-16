@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
 
     public float health;
 
+    public bool hiveMind;
+
+    public static bool hiveMindActive;
+
     //waypoints
     public Transform[] waypoints;
     int waypointIndex;
@@ -109,17 +113,23 @@ public class Enemy : MonoBehaviour
 
     void FieldOfViewCheck()
     {
+        if (hiveMindActive){
+            seesPlayer = true;
+            seenPlayer = true;
+            StopAllCoroutines();
+        }
         //is the player next to the enemy
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, 1, targetMask);
         if (rangeChecks.Length != 0){
             seesPlayer = true;
             seenPlayer = true;
+            if (hiveMind) hiveMindActive = true;
             StopAllCoroutines();
         }
         
         //Is the player within view distance, and doens't have invisibility active?
         rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-        if (rangeChecks.Length != 0)
+        if (rangeChecks.Length != 0 && !hiveMind)
         {
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - transform.position).normalized;
@@ -158,7 +168,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-        else if (seesPlayer)
+        else if (seesPlayer && !hiveMind)
         {
             seesPlayer = false;
             if (seenPlayer)
