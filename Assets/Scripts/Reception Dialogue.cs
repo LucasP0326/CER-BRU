@@ -66,7 +66,7 @@ public class ReceptionDialogue : MonoBehaviour
         }
         if (dialogueActive == false)
         {
-            music.GetComponent<AudioSource>().volume = 1f;
+            music.GetComponent<AudioSource>().volume = .75f;
         }
     }
 

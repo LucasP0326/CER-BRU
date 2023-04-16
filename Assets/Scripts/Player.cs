@@ -60,6 +60,9 @@ public class Player : MonoBehaviour
     public GameObject proneRestingGunPosition;
     public GameObject proneAimingGunPosition;
 
+    Animator animator;
+    
+
     private void Start()
     {
         defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
@@ -70,6 +73,8 @@ public class Player : MonoBehaviour
         }
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -86,6 +91,8 @@ public class Player : MonoBehaviour
 
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            animator.SetBool("ADS",true);
         }
         else if (hasGun && Input.GetMouseButtonUp(1))
         {
@@ -98,6 +105,8 @@ public class Player : MonoBehaviour
 
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            animator.SetBool("ADS",false);
         }
 
         if (hasGun && Input.GetButtonDown("Aim")) 
@@ -112,6 +121,8 @@ public class Player : MonoBehaviour
             gun.transform.parent = aimingGunPosition.transform;
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            animator.SetBool("ADS",true);
         }
         else if (hasGun && Input.GetButtonUp("Aim"))
         {
@@ -122,6 +133,8 @@ public class Player : MonoBehaviour
             gun.transform.parent = restingGunPosition.transform;
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            animator.SetBool("ADS",false);
         }
 
         //collect pickup

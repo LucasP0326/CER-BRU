@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
         globalVariables.GetComponent<GlobalVariables>().collectedInvisibility = false;
         Player.informationDeleted = 0;
         Player.informationSaved = 0;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Cutscene Room");
     }
 
     public void QuitGame() 
