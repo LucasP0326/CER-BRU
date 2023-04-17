@@ -56,6 +56,13 @@ public class CutsceneManager : MonoBehaviour
         {
             music.GetComponent<AudioSource>().volume = 1f;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (globalVariables.GetComponent<GlobalVariables>().labsWon == false)
+                SceneManager.LoadScene("Reception");
+            if (globalVariables.GetComponent<GlobalVariables>().labsWon == true)
+                SceneManager.LoadScene("Main Menu");
+        }
     }
 
     IEnumerator IntroCutscene()
