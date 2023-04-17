@@ -59,7 +59,12 @@ public class ProjectileGun : MonoBehaviour
 
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+        {
+            if (player.GetComponent<Player>().ammo > 0)
+                ammunitionDisplay.SetText("AMMO:  " + bulletsLeft + " / " + player.GetComponent<Player>().ammo);
+            if (player.GetComponent<Player>().ammo == 0)
+                ammunitionDisplay.SetText("OUT OF AMMO");
+        }
     }
     private void MyInput()
     {
