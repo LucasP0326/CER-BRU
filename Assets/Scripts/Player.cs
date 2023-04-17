@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
     public HealthBar healthbar;
 
     Animator animator;
+
+    public GameObject globalVariables;
     
 
     private void Start()
@@ -85,6 +87,17 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (globalVariables.GetComponent<GlobalVariables>().collectedInvisibility == true)
+        {
+            invisibilityUsable = true;
+            invisiblityIcon.SetActive(true);
+        }
+        if (globalVariables.GetComponent<GlobalVariables>().collectedXray == true)
+        {
+            xrayUsable = true;
+            xrayIcon.SetActive(true);
+        }
+
         //HealthBar
         healthbar.SetHealth(health);
 
@@ -410,5 +423,11 @@ public class Player : MonoBehaviour
     public void RaiseAmmo(int ammoRaiseAmount)
     {
         ammo += ammoRaiseAmount;
+    }
+
+    public void RaiseHealth(int healthRaiseAmount)
+    {
+        if (health < 10)
+            health += healthRaiseAmount;
     }
 }

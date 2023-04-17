@@ -13,11 +13,20 @@ public class CutsceneManager : MonoBehaviour
     public RawImage callerID;
     public float timeDelay;
     public int slideNumber;
+    public bool dialoguePlaying;
     public bool playedCutscene = false;
+
+    public AudioSource music;
+    public AudioSource goodMorning;
+    public AudioSource haventHeard;
+    public AudioSource threeDaysAgo;
+    public AudioSource perCompanyStandards;
+    public AudioSource instructions;
 
     // Start is called before the first frame update
     void Start()
     {
+        dialoguePlaying = false;
         dialogue.enabled = false;
         caller.enabled = false;
         callerID.enabled = false;
@@ -38,41 +47,61 @@ public class CutsceneManager : MonoBehaviour
             playedCutscene = true;
             StartCoroutine(ExitCutscene());
         }
+
+        if (dialoguePlaying == true)
+        {
+            music.GetComponent<AudioSource>().volume = 0.25f;
+        }
+        if (dialoguePlaying == false)
+        {
+            music.GetComponent<AudioSource>().volume = 1f;
+        }
     }
 
     IEnumerator IntroCutscene()
     {
+        dialoguePlaying = true;
         dialogue.enabled = true;
         caller.enabled = true;
         callerID.enabled = true;
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
+        goodMorning.Play();
         caller.text = "SECURITY DISPATCH";
         dialogue.text = "Good Morning Operative.  Apologies for activating you on such short notice, but corporate was very clear about wanting you on this one.";
+        timeDelay = 6f;
         yield return new WaitForSeconds(timeDelay);
         slideNumber = 1;
+        haventHeard.Play();
         dialogue.text = "You won’t have heard about this on the news as it hasn’t reached the public eye yet, and you’re going to help keep it that way.  Nevada Protocol has been enacted.";
+        timeDelay = 11f;
         yield return new WaitForSeconds(timeDelay);
         slideNumber = 2;
+        threeDaysAgo.Play();
         dialogue.text = "Three days ago, the CERAEBRU cerebral Implant lab outside of Redfield, South Dakota was put under code red.  Recovered security footage preceding total facility blackout suggests an experimental failure and facility-wide outbreak.";
-        timeDelay = 8f;
+        timeDelay = 15f;
         yield return new WaitForSeconds(timeDelay);
         slideNumber = 3;
+        perCompanyStandards.Play();
         dialogue.text = "Per company security standards, the security wing of the facility has been secured, and will act as a base of operations for you and your team.  You are being deployed in advance however as forward recon.";
+        timeDelay = 15f;
         yield return new WaitForSeconds(timeDelay);
         slideNumber = 4;
+        instructions.Play();
         dialogue.text = "Your instructions are as follows: Obtain access to the facility’s lower levels, clear out any hostiles, and in accordance with Nevada Protocol, delete all information; leave no trace.";
-        timeDelay = 5f;
+        timeDelay = 15f;
         yield return new WaitForSeconds(timeDelay);
         slideNumber = 0;
         dialogue.enabled = false;
         caller.enabled = false;
         callerID.enabled = false;
+        dialoguePlaying = false;
         SceneManager.LoadScene("Reception");
     }
 
     IEnumerator ExitCutscene()
     {
+        dialoguePlaying = true;
         dialogue.enabled = true;
         caller.enabled = true;
         callerID.enabled = true;
@@ -169,6 +198,7 @@ public class CutsceneManager : MonoBehaviour
             caller.enabled = false;
             callerID.enabled = false;
         }
+        dialoguePlaying = false;
         SceneManager.LoadScene("MainMenu");
     }
 }
