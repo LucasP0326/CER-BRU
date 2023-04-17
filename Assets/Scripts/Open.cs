@@ -23,12 +23,12 @@ public class Open : MonoBehaviour
         keyPad.GetComponent<MeshRenderer>().material = staticMat;
     }
 
-    void OnTriggerStay()
+    void OnTriggerStay(Collider other)
     {
         Key keyCard = key.gameObject.GetComponent<Key>();
         
         //If press E
-        if (Input.GetKey (KeyCode.E))
+        if (Input.GetKey (KeyCode.E) && other.gameObject.CompareTag("Player"))
         {
             //if door unlocked
             if (locked == false)

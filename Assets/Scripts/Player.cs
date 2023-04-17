@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     public static int informationSaved = 0;
     public int killCount = 0;
     public int health;
+    public int ammo;
 
     //prone
     public bool prone;
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        ammo = 20;
         defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
 
         if (hasGun)
@@ -397,5 +399,15 @@ public class Player : MonoBehaviour
             gun.transform.localPosition = new Vector3(0f, 0f, 0f);
             gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    public void ReduceAmmo()
+    {
+        ammo -= 1;
+    }
+
+    public void RaiseAmmo(int ammoRaiseAmount)
+    {
+        ammo += ammoRaiseAmount;
     }
 }

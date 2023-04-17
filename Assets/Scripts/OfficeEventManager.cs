@@ -61,7 +61,7 @@ public class OfficeEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (securityTerminal.GetComponent<SecurityOfficeTerminal>().levelSelected == 2 && playedTerminalTutorial == false)
+        if (securityTerminal.GetComponent<SecurityOfficeTerminal>().levelSelected == 2 && playedTerminalTutorial == false && dialogueActive == false)
         {
             StartCoroutine(SecurityTerminalTutorial());
             playedTerminalTutorial = true;

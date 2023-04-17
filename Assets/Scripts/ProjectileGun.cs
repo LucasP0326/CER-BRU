@@ -3,6 +3,9 @@ using TMPro;
 
 public class ProjectileGun : MonoBehaviour
 {
+    //Player
+    public GameObject player;
+    
     //Shoot Audio
     public AudioSource ShootSFX;
 
@@ -69,7 +72,7 @@ public class ProjectileGun : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && aiming)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale > 0 && aiming && player.GetComponent<Player>().ammo > 0)
         {
             //Set bullets shot to 0
             bulletsShot = 0;
@@ -80,6 +83,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void Shoot()
     {
+        player.GetComponent<Player>().ReduceAmmo();
         ShootSFX.Play ();
 
         readyToShoot = false;

@@ -104,7 +104,7 @@ public class SecurityOfficeTerminal : MonoBehaviour
             labsCleared.SetActive(false);
             labsInaccessible.SetActive(false);
         }
-        if (globalVariables.GetComponent<GlobalVariables>().receptionWon == true && globalVariables.GetComponent<GlobalVariables>().adminWon == true && globalVariables.GetComponent<GlobalVariables>().labsWon == false)
+        if (globalVariables.GetComponent<GlobalVariables>().receptionWon == true && globalVariables.GetComponent<GlobalVariables>().adminWon == true && globalVariables.GetComponent<GlobalVariables>().labsWon == true)
         {
             receptionCleared.SetActive(true);
             receptionInaccessible.SetActive(false);

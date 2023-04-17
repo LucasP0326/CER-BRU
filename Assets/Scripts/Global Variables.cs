@@ -18,6 +18,7 @@ public class GlobalVariables : MonoBehaviour
         collectedInvisibility = InvisibilityTerminal.collectedInvisibility;
         receptionWon = WinReception.receptionWon;
         adminWon = WinAdministration.adminWon;
+        labsWon = WinLaboratories.laboratoriesWon;
         informationDeleted += Player.informationDeleted;
         informationDeleted += Player.informationDeleted;
     }
@@ -28,5 +29,6 @@ public class GlobalVariables : MonoBehaviour
         collectedInvisibility = InvisibilityTerminal.collectedInvisibility;
         receptionWon = WinReception.receptionWon;
         adminWon = WinAdministration.adminWon;
+        labsWon = WinLaboratories.laboratoriesWon;
     }
 }
