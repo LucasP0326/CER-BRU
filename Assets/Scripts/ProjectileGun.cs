@@ -25,6 +25,8 @@ public class ProjectileGun : MonoBehaviour
 
     int bulletsLeft, bulletsShot;
 
+    //Empty Gun SFX
+    public AudioSource empty;
 
     //bools
     bool shooting, readyToShoot, reloading;
@@ -78,6 +80,9 @@ public class ProjectileGun : MonoBehaviour
             bulletsShot = 0;
 
             Shoot();
+            
+            if (player.GetComponent<Player>().ammo <= 0)
+                empty.Play();
         }
     }
 

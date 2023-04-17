@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
         globalVariables.GetComponent<GlobalVariables>().informationDeleted = 0;
         WinReception.receptionWon = false;
         WinAdministration.adminWon = false;
+        WinLaboratories.laboratoriesWon = false;
         InvisibilityTerminal.collectedInvisibility = false;
         globalVariables.GetComponent<GlobalVariables>().collectedInvisibility = false;
         Player.informationDeleted = 0;

@@ -63,6 +63,8 @@ public class Player : MonoBehaviour
     public GameObject proneRestingGunPosition;
     public GameObject proneAimingGunPosition;
 
+    public HealthBar healthbar;
+
     Animator animator;
     
 
@@ -83,6 +85,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        //HealthBar
+        healthbar.SetHealth(health);
+
         //ADS
         if (hasGun && Input.GetMouseButtonDown(1))
         {
