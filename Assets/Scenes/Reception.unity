@@ -30264,8 +30264,8 @@ MonoBehaviour:
   xrayLength: 10
   xrayCooldown: 30
   xrayIcon: {fileID: 1842787162}
-  transparentMat: {fileID: 2100000, guid: 5c5e58c9e0c23db41b93465b4ec52d88, type: 2}
-  opaqueMat: {fileID: 2100000, guid: 2c39dff440704374c8c3612665664b3c, type: 2}
+  transparentMat: {fileID: 2100000, guid: a99dec10ee44acb4889adc08e0c89b95, type: 2}
+  opaqueMat: {fileID: 2100000, guid: be4ff888a1d6fb242aee78672fdeac2d, type: 2}
   Mesh: {fileID: 0}
   restingGunPosition: {fileID: 1364278096}
   aimingGunPosition: {fileID: 873563064}

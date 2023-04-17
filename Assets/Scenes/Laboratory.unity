@@ -4045,6 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbff510d2e1192b4fba936e22508a7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1660211750}
   ShootSFX: {fileID: 1755356816}
   ReloadSFX: {fileID: 1755356817}
   bullet: {fileID: 7659603899743748299, guid: d44d1c11458ce1e4cb0f300bbda93a6c, type: 3}
@@ -4654,8 +4655,8 @@ MonoBehaviour:
   xrayLength: 10
   xrayCooldown: 30
   xrayIcon: {fileID: 0}
-  transparentMat: {fileID: 2100000, guid: 5c5e58c9e0c23db41b93465b4ec52d88, type: 2}
-  opaqueMat: {fileID: 2100000, guid: 2c39dff440704374c8c3612665664b3c, type: 2}
+  transparentMat: {fileID: 2100000, guid: a99dec10ee44acb4889adc08e0c89b95, type: 2}
+  opaqueMat: {fileID: 2100000, guid: be4ff888a1d6fb242aee78672fdeac2d, type: 2}
   Mesh: {fileID: 0}
   restingGunPosition: {fileID: 441480590}
   aimingGunPosition: {fileID: 2064263802}
@@ -4664,6 +4665,7 @@ MonoBehaviour:
   hasGun: 1
   killCount: 0
   health: 10
+  ammo: 0
   prone: 0
   visibleMesh: {fileID: 5363859861211878396}
   playerCameraRoot: {fileID: 1812844535}

@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        hiveMindActive = false;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
@@ -209,6 +210,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (hiveMind) hiveMindActive = true;
         if (!player.GetComponent<Player>().invisible && alive){
         seesPlayer = true;
         seenPlayer = true;

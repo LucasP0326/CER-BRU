@@ -301,14 +301,10 @@ public class Player : MonoBehaviour
     private void playerInvisible()
     {
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[0].CopyPropertiesFromMaterial(transparentMat);
-        Mesh.GetComponent<SkinnedMeshRenderer>().materials[1].CopyPropertiesFromMaterial(transparentMat);
-        //Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(transparentMat);
     }
     private void playerVisible()
     {
         Mesh.GetComponent<SkinnedMeshRenderer>().materials[0].CopyPropertiesFromMaterial(opaqueMat);
-        Mesh.GetComponent<SkinnedMeshRenderer>().materials[1].CopyPropertiesFromMaterial(opaqueMat);
-        //Mesh.GetComponent<SkinnedMeshRenderer>().materials[2].CopyPropertiesFromMaterial(opaqueMat);
     }
 
     private void xrayOn(){
