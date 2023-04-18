@@ -13,6 +13,7 @@ public class LaboratoriesEventManager : MonoBehaviour
     public float timeDelay;
     public AudioSource music;
     public bool dialogueActive = false;
+    public bool musicLowered = false;
     public GameObject labFootage;
 
     // Start is called before the first frame update
@@ -28,11 +29,15 @@ public class LaboratoriesEventManager : MonoBehaviour
     {
         if (dialogueActive == true)
         {
-            music.GetComponent<AudioSource>().volume = 0.25f;
+            if (musicLowered == false)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume / 5);
+            musicLowered = true;
         }
         if (dialogueActive == false)
         {
-            music.GetComponent<AudioSource>().volume = 1f;
+            if (musicLowered == true)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume * 5);
+            musicLowered = false;
         }
     }
 

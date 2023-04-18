@@ -22,6 +22,7 @@ public class CutsceneManager : MonoBehaviour
     public AudioSource threeDaysAgo;
     public AudioSource perCompanyStandards;
     public AudioSource instructions;
+    public bool musicLowered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +51,15 @@ public class CutsceneManager : MonoBehaviour
 
         if (dialoguePlaying == true)
         {
-            music.GetComponent<AudioSource>().volume = 0.25f;
+            if (musicLowered == false)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume / 5);
+            musicLowered = true;
         }
         if (dialoguePlaying == false)
         {
-            music.GetComponent<AudioSource>().volume = 1f;
+            if (musicLowered == true)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume * 5);
+            musicLowered = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

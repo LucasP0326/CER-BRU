@@ -22,6 +22,7 @@ public class ReceptionDialogue : MonoBehaviour
     public GameObject door;
     public AudioSource music;
     public bool dialogueActive = false;
+    public bool musicLowered = false;
 
     public AudioSource insideFacility;
     public AudioSource allOtherEntrances;
@@ -71,11 +72,15 @@ public class ReceptionDialogue : MonoBehaviour
         }
         if (dialogueActive == true)
         {
-            music.GetComponent<AudioSource>().volume = 0.1f;
+            if (musicLowered == false)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume / 5);
+            musicLowered = true;
         }
         if (dialogueActive == false)
         {
-            music.GetComponent<AudioSource>().volume = .5f;
+            if (musicLowered == true)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume * 5);
+            musicLowered = false;
         }
     }
 

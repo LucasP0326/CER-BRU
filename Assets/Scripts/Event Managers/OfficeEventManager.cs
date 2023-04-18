@@ -18,6 +18,7 @@ public class OfficeEventManager : MonoBehaviour
     public GameObject globalVariables;
     public GameObject securityTerminal;
     public bool dialogueActive = false;
+    public bool musicLowered = false;
 
     public AudioSource officeMusic;
     public AudioSource reachedSecurityWing;
@@ -68,11 +69,15 @@ public class OfficeEventManager : MonoBehaviour
         }
         if (dialogueActive == true)
         {
-            officeMusic.GetComponent<AudioSource>().volume = 0.25f;
+            if (musicLowered == false)
+                officeMusic.GetComponent<AudioSource>().volume = (officeMusic.GetComponent<AudioSource>().volume / 5);
+            musicLowered = true;
         }
         if (dialogueActive == false)
         {
-            officeMusic.GetComponent<AudioSource>().volume = 1f;
+            if (musicLowered == true)
+                officeMusic.GetComponent<AudioSource>().volume = (officeMusic.GetComponent<AudioSource>().volume * 5);
+            musicLowered = false;
         }
     }
 

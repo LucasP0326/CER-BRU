@@ -18,6 +18,7 @@ public class AdministrationEventManager : MonoBehaviour
     public bool showedTerminalTutorial = false;
     public AudioSource music;
     public bool dialogueActive = false;
+    public bool musicLowered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +38,15 @@ public class AdministrationEventManager : MonoBehaviour
         }
         if (dialogueActive == true)
         {
-            music.GetComponent<AudioSource>().volume = 0.25f;
+            if (musicLowered == false)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume / 5);
+            musicLowered = true;
         }
         if (dialogueActive == false)
         {
-            music.GetComponent<AudioSource>().volume = 1f;
+            if (musicLowered == true)
+                music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume * 5);
+            musicLowered = false;
         }
     }
 

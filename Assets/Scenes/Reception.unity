@@ -26054,6 +26054,7 @@ MonoBehaviour:
   door: {fileID: 321155776}
   music: {fileID: 1395750813}
   dialogueActive: 0
+  musicLowered: 0
   insideFacility: {fileID: 337765951}
   allOtherEntrances: {fileID: 867770404}
   makeYourWay: {fileID: 677173701}
@@ -43483,7 +43484,7 @@ PrefabInstance:
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.464569
+      value: -8.525866
       objectReference: {fileID: 0}
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
@@ -43493,12 +43494,12 @@ PrefabInstance:
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.054
+      value: 19.041325
       objectReference: {fileID: 0}
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710784
+      value: -0.707106
       objectReference: {fileID: 0}
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
@@ -43508,7 +43509,7 @@ PrefabInstance:
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70710576
+      value: -0.7071076
       objectReference: {fileID: 0}
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
@@ -43523,7 +43524,7 @@ PrefabInstance:
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -270
       objectReference: {fileID: 0}
     - target: {fileID: 6915577228690877402, guid: 224dd6f7a1db0d144a4d381cda0defb4,
         type: 3}
