@@ -10,7 +10,7 @@ public class AmmoBox : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey (KeyCode.E) && other.gameObject.CompareTag("Player"))
+        if (Input.GetKey (KeyCode.E) || Input.GetButtonDown("Interact") && other.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Player>().RaiseAmmo(ammoValue);
             Destroy(gameObject);
