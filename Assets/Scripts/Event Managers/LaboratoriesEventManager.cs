@@ -15,6 +15,7 @@ public class LaboratoriesEventManager : MonoBehaviour
     public bool dialogueActive = false;
     public bool musicLowered = false;
     public GameObject labFootage;
+    public GameObject[] encounterEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,12 @@ public class LaboratoriesEventManager : MonoBehaviour
             if (musicLowered == true)
                 music.GetComponent<AudioSource>().volume = (music.GetComponent<AudioSource>().volume * 5);
             musicLowered = false;
+        }
+    }
+
+    public void startEncounter(){
+        foreach (var enemy in encounterEnemies){
+            enemy.GetComponent<Enemy>().encounterActive = true;
         }
     }
 

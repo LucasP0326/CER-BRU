@@ -40,6 +40,8 @@ public class OfficeEventManager : MonoBehaviour
     public AudioSource multipleSignatures;
     public AudioSource run;
 
+    public GameObject[] encounterEnemies;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,13 @@ public class OfficeEventManager : MonoBehaviour
         {
             StartCoroutine(Security());
             playedSecurityTutorial = true;
+        }
+    }
+
+    public void startEncounter(){
+        foreach (var enemy in encounterEnemies){
+            enemy.SetActive(true);
+            enemy.GetComponent<Enemy>().encounterActive = true;
         }
     }
 
@@ -236,4 +245,6 @@ public class OfficeEventManager : MonoBehaviour
         transmission.SetActive(false);
         dialogueActive = false;
     }
+
+    
 }
