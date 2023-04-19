@@ -39,6 +39,8 @@ public class ProjectileGun : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
+    public GameObject lightBeam;
+    private bool lightOn;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -165,5 +167,16 @@ public class ProjectileGun : MonoBehaviour
         //Fill magazine
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    public void FlashlightToggle(){
+        if (!lightOn){
+            lightBeam.SetActive(true);
+            lightOn = true;
+        }
+        else{
+            lightBeam.SetActive(false);
+            lightOn = false;
+        }
     }
 }

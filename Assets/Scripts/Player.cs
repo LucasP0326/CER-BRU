@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
         healthbar.SetHealth(health);
 
         //ADS
-        if (hasGun && Input.GetMouseButtonDown(1))
+        if (hasGun && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Aim")))
         {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = true;
@@ -117,8 +117,9 @@ public class Player : MonoBehaviour
             miximoMesh.transform.parent = aimingModelPosition.transform;
 
             animator.SetBool("ADS",true);
+            gun.GetComponent<ProjectileGun>().FlashlightToggle();
         }
-        else if (hasGun && Input.GetMouseButtonUp(1))
+        else if (hasGun && (Input.GetMouseButtonUp(1) || Input.GetButtonUp("Aim")))
         {
             followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
             gameObject.GetComponent<ThirdPersonController>().aiming = false;
@@ -133,34 +134,7 @@ public class Player : MonoBehaviour
             miximoMesh.transform.parent = gameObject.transform;
 
             animator.SetBool("ADS",false);
-        }
-
-        if (hasGun && Input.GetButtonDown("Aim")) 
-        {
-            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = ADSZoom;
-            gameObject.GetComponent<ThirdPersonController>().aiming = true;
-            gun.GetComponent<ProjectileGun>().aiming = true;
-
-            if (!prone) gun.transform.parent = aimingGunPosition.transform;
-            else gun.transform.parent = proneAimingGunPosition.transform;
-           
-            gun.transform.parent = aimingGunPosition.transform;
-            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
-            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-            animator.SetBool("ADS",true);
-        }
-        else if (hasGun && Input.GetButtonUp("Aim"))
-        {
-            followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = defaultZoom;
-            gameObject.GetComponent<ThirdPersonController>().aiming = false;
-            gun.GetComponent<ProjectileGun>().aiming = false;
-
-            gun.transform.parent = restingGunPosition.transform;
-            gun.transform.localPosition = new Vector3(0f, 0f, 0f);
-            gun.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-            animator.SetBool("ADS",false);
+            gun.GetComponent<ProjectileGun>().FlashlightToggle();
         }
 
         //collect pickup
