@@ -23106,6 +23106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   hiveMind: 0
+  encounterEnemy: 0
+  encounterActive: 0
   waypoints: []
   player: {fileID: 0}
   viewRadius: 20
@@ -24658,6 +24660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   hiveMind: 0
+  encounterEnemy: 0
+  encounterActive: 0
   waypoints: []
   player: {fileID: 0}
   viewRadius: 20
@@ -41490,8 +41494,119 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 595027132}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4141104942378118190, guid: 74cb94b016b058647af0b677dd3a6c12,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 4141104942308747957}
   m_SourcePrefab: {fileID: 100100000, guid: 74cb94b016b058647af0b677dd3a6c12, type: 3}
+--- !u!1 &4141104942308747955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4141104942378118190, guid: 74cb94b016b058647af0b677dd3a6c12,
+    type: 3}
+  m_PrefabInstance: {fileID: 4141104942308747954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4141104942308747957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141104942308747955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364e98e651a059a4ab0b8d8cd53abd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CursorMode: 0
+  m_CursorGraphic: {fileID: 0}
+  m_CursorTransform: {fileID: 0}
+  m_CursorSpeed: 400
+  m_ScrollSpeed: 45
+  m_StickAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Stick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 91a0f87c-c480-4d66-8292-960aabef6448
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_LeftButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 73764393-755a-4fd7-8a6e-c5df1829ba42
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_MiddleButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Middle Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b27e11b6-52aa-4f17-b6ef-c3888ad6cce6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: e73123ef-063a-467c-99dd-860fe0d84596
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_ForwardButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Forward Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 348a64ab-2c1a-456b-8dd3-a2ce3180a27c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_BackButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Back Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fdf742c9-2ae5-45a4-bba7-ad1748179595
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_ScrollWheelAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Scroll Wheel
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9b9a43b1-ad31-4516-9ad2-6d7a1d25ecce
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!4 &4145860096123140496
 Transform:
   m_ObjectHideFlags: 0
