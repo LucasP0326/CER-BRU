@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public GameObject invisiblityIcon;
 
     //xray
-    private bool xrayUsable;
+    public bool xrayUsable;
     public bool xray;
     public int xrayLength;
     public int xrayCooldown;
