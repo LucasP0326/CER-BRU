@@ -16,6 +16,7 @@ public class GlobalVariables : MonoBehaviour
     void Start()
     {
         collectedInvisibility = InvisibilityTerminal.collectedInvisibility;
+        collectedXray = XRayTerminal.collectedXRay;
         receptionWon = WinReception.receptionWon;
         adminWon = WinAdministration.adminWon;
         labsWon = WinLaboratories.laboratoriesWon;

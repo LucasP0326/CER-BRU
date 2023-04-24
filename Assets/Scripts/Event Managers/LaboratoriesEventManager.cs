@@ -16,6 +16,10 @@ public class LaboratoriesEventManager : MonoBehaviour
     public bool musicLowered = false;
     public GameObject labFootage;
     public GameObject[] encounterEnemies;
+    public GameObject door1;
+    public GameObject door2;
+    public GameObject door3;
+    public GameObject door4;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +49,12 @@ public class LaboratoriesEventManager : MonoBehaviour
     public void startEncounter(){
         foreach (var enemy in encounterEnemies){
             enemy.GetComponent<Enemy>().encounterActive = true;
+        door1.GetComponent<Door>().doorOpen = true;
+        door2.GetComponent<Door>().doorOpen = true;
+        door3.GetComponent<Door>().doorOpen = true;
+        door4.GetComponent<Door>().doorOpen = true;
         }
     }
-
     IEnumerator Wait()
     {
         dialogueActive = true;
@@ -69,6 +76,5 @@ public class LaboratoriesEventManager : MonoBehaviour
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
         dialogueActive = false;
-
     }
 }

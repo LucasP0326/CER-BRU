@@ -23,6 +23,7 @@ public class XRayTerminal : MonoBehaviour
     public GameObject downloadButton;
     public GameObject xrayIcon;
     public static bool collectedXRay = false;
+    public GameObject laboratoriesEventManager;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,8 @@ public class XRayTerminal : MonoBehaviour
         terminalScreen.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        laboratoriesEventManager.GetComponent<LaboratoriesEventManager>().startEncounter();
     }
 
     public void OpenEmail1()
