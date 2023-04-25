@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RetryGame : MonoBehaviour
 {
+    public GameObject globalVariables;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,10 @@ public class RetryGame : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        if (globalVariables.GetComponent<GlobalVariables>().receptionWon == true)
+            SceneManager.LoadScene("Office");
+        if (globalVariables.GetComponent<GlobalVariables>().receptionWon == false)
+            SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

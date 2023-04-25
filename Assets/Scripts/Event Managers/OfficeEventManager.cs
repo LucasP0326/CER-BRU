@@ -55,10 +55,6 @@ public class OfficeEventManager : MonoBehaviour
         {
             StartCoroutine(AdministrationWon());
         }
-        if (globalVariables.GetComponent<GlobalVariables>().labsWon == true)
-        {
-            StartCoroutine(LabsWon());
-        }
     }
 
     // Update is called once per frame
@@ -102,6 +98,7 @@ public class OfficeEventManager : MonoBehaviour
     }
 
     public void startEncounter(){
+        StartCoroutine(LabsWon());
         foreach (var enemy in encounterEnemies){
             enemy.SetActive(true);
             enemy.GetComponent<Enemy>().encounterActive = true;

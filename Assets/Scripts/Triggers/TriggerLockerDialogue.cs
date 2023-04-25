@@ -6,6 +6,7 @@ public class TriggerLockerDialogue : MonoBehaviour
 {
 
     public GameObject transmission;
+    public GameObject globalVariables;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class TriggerLockerDialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && globalVariables.GetComponent<GlobalVariables>().adminWon == false)
         {
             transmission.GetComponent<OfficeEventManager>().LockerDialogue();
         }

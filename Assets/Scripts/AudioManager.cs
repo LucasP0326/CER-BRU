@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 
 public class AudioManager : MonoBehaviour
@@ -15,21 +16,85 @@ public class AudioManager : MonoBehaviour
     public const string MIXER_MUSIC = "MusicVolume";
     public const string MIXER_SFX = "SFXVolume";
     public const string MIXER_DIALOGUE = "DialogueVolume";
+
+    public AudioSource mainMusic;
+    public AudioSource receptionMusic;
+    public AudioSource administrationMusic;
+    public AudioSource laboratoriesMusic;
+    public AudioSource officeMusic;
     
     void Awake()
     {
+        Scene scene = SceneManager.GetActiveScene();
+        
+        /*
         if (instance == null)
         {
             instance = this;
 
             DontDestroyOnLoad(gameObject);
         }
-        else
+        */
+
+        if (scene.name == "MainMenu")
         {
-            Destroy(gameObject);
+            mainMusic.Play();
+            receptionMusic.Stop();
+            administrationMusic.Stop();
+            laboratoriesMusic.Stop();
+            officeMusic.Stop();
+        }
+
+        if (scene.name == "Cutscene Room")
+        {
+            mainMusic.Play();
+            receptionMusic.Stop();
+            administrationMusic.Stop();
+            laboratoriesMusic.Stop();
+            officeMusic.Stop();
+        }
+
+        if(scene.name == "Reception")
+        {
+            mainMusic.Stop();
+            receptionMusic.Play();
+            administrationMusic.Stop();
+            laboratoriesMusic.Stop();
+            officeMusic.Stop(); 
+        }
+
+        if(scene.name == "Administration")
+        {
+            mainMusic.Stop();
+            receptionMusic.Stop();
+            administrationMusic.Play();
+            laboratoriesMusic.Stop();
+            officeMusic.Stop(); 
+        }
+
+        if(scene.name == "Laboratory")
+        {
+            mainMusic.Stop();
+            receptionMusic.Stop();
+            administrationMusic.Stop();
+            laboratoriesMusic.Play();
+            officeMusic.Stop(); 
+        }
+
+        if(scene.name == "Office")
+        {
+            mainMusic.Stop();
+            receptionMusic.Stop();
+            administrationMusic.Stop();
+            laboratoriesMusic.Stop();
+            officeMusic.Play(); 
         }
 
         LoadVolume();
+    }
+
+    void Update()
+    {
     }
 
     void LoadVolume() //Volume saved in VolumeSettings script

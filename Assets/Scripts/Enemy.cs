@@ -46,6 +46,11 @@ public class Enemy : MonoBehaviour
 
     bool xrayed;
 
+    public AudioSource playerHurt;
+    public AudioSource enemyHurt;
+    public AudioSource playerDeath;
+    public AudioSource enemyDeath;
+
     void Start()
     {
         hiveMindActive = false;
@@ -201,7 +206,12 @@ public class Enemy : MonoBehaviour
             //Debug.Log("attack!");
             animator.SetTrigger("Attack");
             player.GetComponent<Player>().health -= attackDamage;
-            if (player.GetComponent<Player>().health == 0) player.GetComponent<Player>().Death();
+            playerHurt.Play();
+            if (player.GetComponent<Player>().health == 0)
+            {
+                playerDeath.Play();
+                player.GetComponent<Player>().Death();
+            }
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             Invoke(nameof(FinishAttackAnim), 0.5f);
@@ -225,7 +235,12 @@ public class Enemy : MonoBehaviour
         Vector3 dirToPlayer = transform.position - player.transform.position;
         Vector3 newPos = transform.position - dirToPlayer;
         health -= damage;
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        enemyHurt.Play();
+        if (health <= 0)
+        {
+            enemyDeath.Play();
+            Invoke(nameof(DestroyEnemy), 0.5f);
+        }
         }
     }
     private void DestroyEnemy()
