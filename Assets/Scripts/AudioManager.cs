@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     public const string MIXER_SFX = "SFXVolume";
     public const string MIXER_DIALOGUE = "DialogueVolume";
 
+    public static float musicVolume;
+
     public AudioSource mainMusic;
     public AudioSource receptionMusic;
     public AudioSource administrationMusic;
@@ -35,6 +37,8 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         */
+
+        LoadVolume();
 
         if (scene.name == "MainMenu")
         {
@@ -89,8 +93,6 @@ public class AudioManager : MonoBehaviour
             laboratoriesMusic.Stop();
             officeMusic.Play(); 
         }
-
-        LoadVolume();
     }
 
     void Update()

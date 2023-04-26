@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -68,10 +69,14 @@ public class Player : MonoBehaviour
     Animator animator;
 
     public GameObject globalVariables;
+
+    public RawImage hurtEffect;
+    
     
 
     private void Start()
     {
+        hurtEffect.enabled = false;
         ammo = 20;
         defaultZoom = followCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
 
@@ -326,6 +331,7 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Lose");
     }
 
+    //Cross Level Player Information
     public void DeleteInformation(int informationValue)
     {
         informationDeleted += informationValue;
@@ -389,6 +395,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Player Ammo Management
     public void ReduceAmmo()
     {
         ammo -= 1;
@@ -403,5 +410,23 @@ public class Player : MonoBehaviour
     {
         if (health < 10)
             health += healthRaiseAmount;
+        
+    }
+
+    //Health Gain/Loss Effects
+    public void Injured()
+    {
+        hurtEffect.enabled = true;
+        StartCoroutine(FadeEffect(hurtEffect));
+    }
+
+    IEnumerator FadeEffect(RawImage image)
+    {
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+            {
+                // set color with i as alpha
+                image.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
     }
 }

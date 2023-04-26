@@ -167,7 +167,6 @@ public class OfficeEventManager : MonoBehaviour
     IEnumerator LabsWon()
     {
         dialogueActive = true;
-        timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(true);
         connectionSpotty.Play();

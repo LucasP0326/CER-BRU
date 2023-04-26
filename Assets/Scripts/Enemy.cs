@@ -207,6 +207,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Attack");
             player.GetComponent<Player>().health -= attackDamage;
             playerHurt.Play();
+            player.GetComponent<Player>().Injured();
             if (player.GetComponent<Player>().health == 0)
             {
                 playerDeath.Play();

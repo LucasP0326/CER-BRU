@@ -59,8 +59,10 @@ public class Door : MonoBehaviour
             if (doorOpen == false && doorMoving == false)
             {
                 if (locked == false)
+                {
                     doorOpen = true;
                     door.Play();
+                }
                 if (locked == true && keyCard.hasKey == false)
                 {
                     keyPad.GetComponent<MeshRenderer>().material = failMat;
