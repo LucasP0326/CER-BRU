@@ -48,6 +48,8 @@ public class ProjectileGun : MonoBehaviour
     //equipped
     public bool equipped;
 
+    public GameObject crosshair;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -96,6 +98,7 @@ public class ProjectileGun : MonoBehaviour
     private void Shoot()
     {
         player.GetComponent<Player>().ReduceAmmo();
+        crosshair.GetComponent<Crosshair>().FireGun();
         ShootSFX.Play ();
 
         readyToShoot = false;

@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
     public AudioSource playerDeath;
     public AudioSource enemyDeath;
 
+    public GameObject crosshair;
+
     void Start()
     {
         hiveMindActive = false;
@@ -237,6 +239,7 @@ public class Enemy : MonoBehaviour
         Vector3 newPos = transform.position - dirToPlayer;
         health -= damage;
         enemyHurt.Play();
+        crosshair.GetComponent<Crosshair>().HitEnemy();
         if (health <= 0)
         {
             enemyDeath.Play();
