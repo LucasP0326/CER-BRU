@@ -1798,6 +1798,8 @@ MonoBehaviour:
   informationValue: 2
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &104343343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1860,7 +1862,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1889,7 +1891,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104343341}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &104343347
 Transform:
   m_ObjectHideFlags: 0
@@ -5220,6 +5222,8 @@ MonoBehaviour:
   informationValue: 3
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &224777897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5282,7 +5286,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5311,7 +5315,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224777895}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &224777901
 Transform:
   m_ObjectHideFlags: 0
@@ -11981,6 +11985,8 @@ MonoBehaviour:
   informationValue: 1
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &567537800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12043,7 +12049,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12072,7 +12078,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567537798}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &567537804
 Transform:
   m_ObjectHideFlags: 0
@@ -17997,6 +18003,8 @@ MonoBehaviour:
   informationValue: 1
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &901504195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18059,7 +18067,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18088,7 +18096,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901504193}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &901504199
 Transform:
   m_ObjectHideFlags: 0
@@ -23023,6 +23031,8 @@ MonoBehaviour:
   informationValue: 1
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &1264012862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23085,7 +23095,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23114,7 +23124,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264012860}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &1264012866
 Transform:
   m_ObjectHideFlags: 0
@@ -27487,6 +27497,8 @@ MonoBehaviour:
   informationValue: 1
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &1520466293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27549,7 +27561,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27578,7 +27590,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520466291}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &1520466297
 Transform:
   m_ObjectHideFlags: 0
@@ -38765,6 +38777,8 @@ MonoBehaviour:
   informationValue: 5
   player: {fileID: 283017369}
   screenOpen: 0
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!65 &1998542965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38827,7 +38841,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 664b1caf1fd1e4826b7ba6e39972825a, type: 2}
+  - {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38856,7 +38870,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998542963}
-  m_Mesh: {fileID: 4068373912626513877, guid: 00a5a83271d40427db00e67f5b43c1e6, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: 04e31deabfc5740bda74cce1f2194c88, type: 3}
 --- !u!4 &1998542969
 Transform:
   m_ObjectHideFlags: 0

@@ -19426,6 +19426,8 @@ MonoBehaviour:
   downloadButton: {fileID: 1008365917}
   xrayIcon: {fileID: 1737829830}
   laboratoriesEventManager: {fileID: 1776163793}
+  staticMat: {fileID: 2100000, guid: c6f4913d396fd45bd85d9cd9cf5a2f79, type: 2}
+  deleteMat: {fileID: 2100000, guid: aefae18ed31af42f19110cb51b222ec8, type: 2}
 --- !u!1001 &1349683379
 PrefabInstance:
   m_ObjectHideFlags: 0

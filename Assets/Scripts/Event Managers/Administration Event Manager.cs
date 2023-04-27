@@ -20,6 +20,13 @@ public class AdministrationEventManager : MonoBehaviour
     public bool dialogueActive = false;
     public bool musicLowered = false;
 
+    public AudioSource reachedAdmin;
+    public AudioSource missionSame;
+    public AudioSource securingConnection;
+    public AudioSource upgrade;
+    public AudioSource beWarned;
+    public AudioSource goodWork;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,8 +65,12 @@ public class AdministrationEventManager : MonoBehaviour
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "You have reached the administrative offices, operative.";
+        reachedAdmin.Play();
+        timeDelay = 3f;
         yield return new WaitForSeconds(timeDelay);
         dialogue.text = "Your objective here remains the same.  Clear the area, and wipe as much information pertinent to CERAEBRU operations as possible.";
+        missionSame.Play();
+        timeDelay = 8f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
         dialogueActive = false;
@@ -80,10 +91,16 @@ public class AdministrationEventManager : MonoBehaviour
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "I’m securing a connection to this terminal, Operative.  It seems that this terminal contains the necessary information to download and install a software upgrade to your cybernetics.";
+        securingConnection.Play();
+        timeDelay = 9f;
         yield return new WaitForSeconds(timeDelay);
         dialogue.text = "This upgrade would give you the option to cloak yourself for a limited time, hiding yourself from enemy threats.";
+        upgrade.Play();
+        timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         dialogue.text = "Be warned, operative.  These may come in handy, but keep in mind that these are the same cybernetic enhancements that created this outbreak in the first place.  I’d advise caution in choosing whether or not to install it.";
+        beWarned.Play();
+        timeDelay = 11f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
         dialogueActive = false;
@@ -95,6 +112,7 @@ public class AdministrationEventManager : MonoBehaviour
         transmission.SetActive(true);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "Good work, operative.  The threats here have been neutralized.  Continue with your mission to erase all information, then enter the elevator to return to the security wing.";
+        goodWork.Play();
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);

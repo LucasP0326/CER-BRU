@@ -25,9 +25,13 @@ public class AdminCameraTerminal : MonoBehaviour
     public GameObject playButton;
     public GameObject feeds;
 
+    public Material staticMat;
+    public Material deleteMat;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<MeshRenderer>().material = staticMat;
         terminalScreen.SetActive(false);
         email1.enabled = false;
         email2.enabled = false;
@@ -202,6 +206,7 @@ public class AdminCameraTerminal : MonoBehaviour
             player.GetComponent<Player>().DeleteInformation(informationValue);
         }
         emailsDeleted = true;
+        gameObject.GetComponent<MeshRenderer>().material = deleteMat;
         Resume();
     }
 

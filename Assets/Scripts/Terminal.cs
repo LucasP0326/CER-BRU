@@ -21,9 +21,13 @@ public class Terminal : MonoBehaviour
     public GameObject player;
     public bool screenOpen = false;
 
+    public Material staticMat;
+    public Material deleteMat;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<MeshRenderer>().material = staticMat;
         terminalScreen.SetActive(false);
         email1.enabled = false;
         email2.enabled = false;
@@ -177,6 +181,7 @@ public class Terminal : MonoBehaviour
             player.GetComponent<Player>().DeleteInformation(informationValue);
         }
         emailsDeleted = true;
+        gameObject.GetComponent<MeshRenderer>().material = deleteMat;
         Resume();
     }
 
