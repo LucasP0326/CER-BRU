@@ -45,3 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 7286eb140ddbebb4ab1e162a647eba99, type: 2}
+  mainMusic: {fileID: 0}
+  receptionMusic: {fileID: 0}
+  administrationMusic: {fileID: 0}
+  laboratoriesMusic: {fileID: 0}
+  officeMusic: {fileID: 0}
