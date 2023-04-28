@@ -11,6 +11,7 @@ public class GlobalVariables : MonoBehaviour
     public bool collectedXray;
     public float informationDeleted;
     public float informationSaved;
+    public bool goneRogue;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +23,17 @@ public class GlobalVariables : MonoBehaviour
         labsWon = WinLaboratories.laboratoriesWon;
         informationDeleted += Player.informationDeleted;
         informationDeleted += Player.informationDeleted;
+        goneRogue = OfficeEventManager.goneRogue;
     }
 
     // Update is called once per frame
     void Update()
     {
         collectedInvisibility = InvisibilityTerminal.collectedInvisibility;
+        collectedXray = XRayTerminal.collectedXRay;
         receptionWon = WinReception.receptionWon;
         adminWon = WinAdministration.adminWon;
         labsWon = WinLaboratories.laboratoriesWon;
+        goneRogue = OfficeEventManager.goneRogue;
     }
 }

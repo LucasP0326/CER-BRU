@@ -12,8 +12,8 @@ public class Crosshair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        centerPoint.GetComponent<RawImage>().color = new Color32(255,255,225,255);
-        crosshair.GetComponent<RawImage>().color = new Color32(255,255,225,255);
+        centerPoint.GetComponent<RawImage>().color = new Color32(0,235,225,255);
+        crosshair.GetComponent<RawImage>().color = new Color32(0,235,225,255);
     }
 
     // Update is called once per frame
@@ -47,9 +47,9 @@ public class Crosshair : MonoBehaviour
 
     IEnumerator Wait()
     {
-        timeDelay = 0.5f;
+        timeDelay = 0.25f;
         yield return new WaitForSeconds(timeDelay);
-        centerPoint.GetComponent<RawImage>().color = new Color32(255,255,225,255);
-        crosshair.GetComponent<RawImage>().color = new Color32(255,255,225,255);
+        centerPoint.GetComponent<RawImage>().color = new Color32(0,235,225,255);
+        crosshair.GetComponent<RawImage>().color = new Color32(0,235,225,255);
     }
 }

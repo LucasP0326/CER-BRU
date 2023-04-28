@@ -25,5 +25,9 @@ public class TriggerLockerDialogue : MonoBehaviour
         {
             transmission.GetComponent<OfficeEventManager>().LockerDialogue();
         }
+        if (other.gameObject.CompareTag("Player") && globalVariables.GetComponent<GlobalVariables>().collectedInvisibility == true && globalVariables.GetComponent<GlobalVariables>().collectedXray == true)
+        {
+            transmission.GetComponent<OfficeEventManager>().RogueEncounter();
+        }  
     }
 }

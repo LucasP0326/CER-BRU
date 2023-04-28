@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OfficeEventManager : MonoBehaviour
 {
@@ -40,11 +41,17 @@ public class OfficeEventManager : MonoBehaviour
     public AudioSource multipleSignatures;
     public AudioSource run;
 
+    public AudioSource command1;
+    public AudioSource command2;
+
+    public static bool goneRogue;
+
     public GameObject[] encounterEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
+        goneRogue = false;
         dialogueActive = false;
         transmission.SetActive(false);
         if (globalVariables.GetComponent<GlobalVariables>().receptionWon == true && globalVariables.GetComponent<GlobalVariables>().adminWon == false)
@@ -97,7 +104,13 @@ public class OfficeEventManager : MonoBehaviour
         }
     }
 
-    public void startEncounter(){
+    public void RogueEncounter()
+    {
+        StartCoroutine(GoingRogue());
+    }
+
+    public void startEncounter()
+    {
         StartCoroutine(LabsWon());
         foreach (var enemy in encounterEnemies){
             enemy.SetActive(true);
@@ -242,5 +255,22 @@ public class OfficeEventManager : MonoBehaviour
         dialogueActive = false;
     }
 
-    
+    IEnumerator GoingRogue()
+    {
+        goneRogue = true;
+        dialogueActive = true;
+        timeDelay = 5f;
+        transmission.SetActive(true);
+        caller.text = "CERAEBRU SECURITY DISPATCH";
+        dialogue.text = "Operative, your implants are showing an unusual amount of strain.  I’m losing connection to your signature.";
+        command1.Play();
+        timeDelay = 7f;
+        yield return new WaitForSeconds(timeDelay);
+        caller.text = "CERAEBRU SECURITY DISPATCH";
+        dialogue.text = "Operative, respond if you can hear me.";
+        command2.Play();
+        timeDelay = 4f;
+        yield return new WaitForSeconds(timeDelay);
+        SceneManager.LoadScene("Cutscene Room");
+    }
 }

@@ -27,6 +27,8 @@ public class AdministrationEventManager : MonoBehaviour
     public AudioSource beWarned;
     public AudioSource goodWork;
 
+    public AudioSource voiceLog;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +118,20 @@ public class AdministrationEventManager : MonoBehaviour
         timeDelay = 5f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
+        dialogueActive = false;
+    }
+
+    public void PlayLog()
+    {
+        dialogueActive = true;
+        voiceLog.Play();
+        StartCoroutine(Wait2());
+    }
+
+    IEnumerator Wait2()
+    {
+        timeDelay = 20f;
+        yield return new WaitForSeconds(timeDelay);
         dialogueActive = false;
     }
 }

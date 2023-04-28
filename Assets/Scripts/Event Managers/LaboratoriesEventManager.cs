@@ -21,6 +21,11 @@ public class LaboratoriesEventManager : MonoBehaviour
     public GameObject door3;
     public GameObject door4;
 
+    public AudioSource reachedLab;
+    public AudioSource numerousHostiles;
+    public AudioSource doNotEngage;
+    public AudioSource losingSignal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +60,13 @@ public class LaboratoriesEventManager : MonoBehaviour
         door4.GetComponent<Door>().doorOpen = true;
         }
     }
+
+    public void SignalDialogue()
+    {
+        if (dialogueActive == false)
+            StartCoroutine(losingSignal2());
+    }
+
     IEnumerator Wait()
     {
         dialogueActive = true;
@@ -64,15 +76,31 @@ public class LaboratoriesEventManager : MonoBehaviour
         labFootage.SetActive(false);
         caller.text = "CERAEBRU SECURITY DISPATCH";
         dialogue.text = "Operative, you have reached the laboratories and…wait.  Do not go past that door.";
+        reachedLab.Play();
         timeDelay = 6f;
         yield return new WaitForSeconds(timeDelay);
         labFootage.SetActive(true);
         dialogue.text = "I am reading numerous hostile signals on the other side of that door.  Far too many for you to handle.";
+        numerousHostiles.Play();
         timeDelay = 7f;
         yield return new WaitForSeconds(timeDelay);
         labFootage.SetActive(false);
         dialogue.text = "Operative, do not engage the enemy.  I suggest looking for another way around.  Remember your objective–wipe all information.";
+        doNotEngage.Play();
         timeDelay = 8f;
+        yield return new WaitForSeconds(timeDelay);
+        transmission.SetActive(false);
+        dialogueActive = false;
+    }
+
+    IEnumerator losingSignal2()
+    {
+        dialogueActive = true;
+        transmission.SetActive(true);
+        caller.text = "CERAEBRU SECURITY DISPATCH";
+        dialogue.text = "Operative, I’m beginning…to lose signal.  Remember…your objective…";
+        losingSignal.Play();
+        timeDelay = 6f;
         yield return new WaitForSeconds(timeDelay);
         transmission.SetActive(false);
         dialogueActive = false;

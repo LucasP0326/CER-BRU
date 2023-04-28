@@ -15,9 +15,12 @@ public class MainMenu : MonoBehaviour
         WinAdministration.adminWon = false;
         WinLaboratories.laboratoriesWon = false;
         InvisibilityTerminal.collectedInvisibility = false;
+        XRayTerminal.collectedXRay = false;
         globalVariables.GetComponent<GlobalVariables>().collectedInvisibility = false;
+        globalVariables.GetComponent<GlobalVariables>().collectedXray = false;
         Player.informationDeleted = 0;
         Player.informationSaved = 0;
+        OfficeEventManager.goneRogue = false;
         SceneManager.LoadScene("Cutscene Room");
     }
 

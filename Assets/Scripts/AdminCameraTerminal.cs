@@ -25,6 +25,8 @@ public class AdminCameraTerminal : MonoBehaviour
     public GameObject playButton;
     public GameObject feeds;
 
+    public GameObject transmission;
+
     public Material staticMat;
     public Material deleteMat;
 
@@ -223,7 +225,7 @@ public class AdminCameraTerminal : MonoBehaviour
 
     public void PlayAudio()
     {
-        voiceLog.Play();
+        transmission.GetComponent<AdministrationEventManager>().PlayLog();
     }
 
     public void Close()
