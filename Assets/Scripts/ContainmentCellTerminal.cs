@@ -29,6 +29,8 @@ public class ContainmentCellTerminal : MonoBehaviour
     public Material staticMat;
     public Material deleteMat;
 
+    public GameObject transmission;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,9 @@ public class ContainmentCellTerminal : MonoBehaviour
     //Script for closing terminal and resuming game
     public void Resume()
     {
+        voiceLog.Stop();
+        voiceLog2.Stop();
+        transmission.GetComponent<LaboratoriesEventManager>().dialogueActive = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         terminalScreen.SetActive(false);
@@ -204,11 +209,15 @@ public class ContainmentCellTerminal : MonoBehaviour
 
     public void PlayAudio()
     {
+        voiceLog2.Stop();
+        transmission.GetComponent<LaboratoriesEventManager>().dialogueActive = true;
         voiceLog.Play();
     }
 
     public void PlayAudio2()
     {
+        voiceLog.Stop();
+        transmission.GetComponent<LaboratoriesEventManager>().dialogueActive = true;
         voiceLog2.Play();
     }
 

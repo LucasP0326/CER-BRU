@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
     public GameObject globalVariables;
 
     public RawImage hurtEffect;
+
+    public AudioSource vent;
     
     
 
@@ -352,6 +354,7 @@ public class Player : MonoBehaviour
         //infrontOfVent = false;
         var cameraVars = followCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         float ADSZoomstore = ADSZoom;
+        vent.Play();
 
         if (!prone){ //going prone
             infrontOfVent = false;
