@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     public bool encounterActive;
 
+    public GameObject eventManager;
+
     //waypoints
     public Transform[] waypoints;
     int waypointIndex;
@@ -127,7 +129,7 @@ public class Enemy : MonoBehaviour
         if (hiveMindActive || (encounterActive && encounterEnemy)){
             seesPlayer = true;
             seenPlayer = true;
-            Debug.Log("sees");
+            //Debug.Log("sees");
             StopAllCoroutines();
         }
         //is the player next to the enemy
@@ -240,8 +242,10 @@ public class Enemy : MonoBehaviour
         health -= damage;
         enemyHurt.Play();
         crosshair.GetComponent<Crosshair>().HitEnemy();
-        if (health <= 0)
+
+        if (health <= 0 && alive)
         {
+            alive = false;
             enemyDeath.Play();
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
@@ -254,9 +258,8 @@ public class Enemy : MonoBehaviour
         seesPlayer = false;
         seenPlayer = false;
         animator.SetTrigger("Death");
-        if (alive == true)
-            player.GetComponent<Player>().UpdateKillCount();
-        alive = false; //For some reason this is really fucking funny
+        player.GetComponent<Player>().UpdateKillCount();
+        if (encounterActive && eventManager != null) eventManager.GetComponent<OfficeEventManager>().spawnEnemy();
     }
 
     private void FinishAttackAnim()

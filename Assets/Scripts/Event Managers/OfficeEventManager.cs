@@ -47,6 +47,12 @@ public class OfficeEventManager : MonoBehaviour
     public static bool goneRogue;
 
     public GameObject[] encounterEnemies;
+    public GameObject spawnableEnemy;
+    public GameObject enemySpawner;
+
+    public GameObject SFX1, SFX2, SFX3, SFX4;
+
+    public GameObject crosshair;
 
     // Start is called before the first frame update
     void Start()
@@ -109,13 +115,27 @@ public class OfficeEventManager : MonoBehaviour
         StartCoroutine(GoingRogue());
     }
 
+
     public void startEncounter()
     {
         StartCoroutine(LabsWon());
         foreach (var enemy in encounterEnemies){
+            enemy.GetComponent<Enemy>().eventManager = gameObject;
             enemy.SetActive(true);
             enemy.GetComponent<Enemy>().encounterActive = true;
         }
+    }
+
+    public void spawnEnemy(){
+        GameObject enemy = Instantiate(spawnableEnemy, enemySpawner.transform.position, Quaternion.identity);
+        enemy.GetComponent<Enemy>().eventManager = gameObject;
+        enemy.GetComponent<Enemy>().playerHurt = SFX1.GetComponent<AudioSource>();
+        enemy.GetComponent<Enemy>().enemyHurt = SFX2.GetComponent<AudioSource>();
+        enemy.GetComponent<Enemy>().playerDeath = SFX3.GetComponent<AudioSource>();
+        enemy.GetComponent<Enemy>().enemyDeath = SFX4.GetComponent<AudioSource>();
+        enemy.GetComponent<Enemy>().crosshair = crosshair;
+        enemy.GetComponent<Enemy>().encounterEnemy = true;
+        enemy.GetComponent<Enemy>().encounterActive = true;
     }
 
     IEnumerator ReceptionWon()

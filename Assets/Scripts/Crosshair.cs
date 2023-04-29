@@ -24,7 +24,7 @@ public class Crosshair : MonoBehaviour
 
     public void FireGun()
     {
-        crosshair.transform.localScale += new Vector3(1f,1f,1f);
+        crosshair.transform.localScale += new Vector3(0.75f,0.75f,0.75f);
         StartCoroutine(DriftBack());
     }
 
@@ -37,7 +37,7 @@ public class Crosshair : MonoBehaviour
 
     IEnumerator DriftBack()
     {
-        for(float i = 1.75f; i >= 0.75f; i-= 0.05f)
+        for(float i = 1.25f; i >= 0.5f; i-= 0.05f)
         {
             crosshair.transform.localScale -= new Vector3(.05f,.05f,.05f);
             yield return null;

@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public GameObject followCamera;
     private float defaultZoom;
     public float ADSZoom;
+
+    private bool flashlightToggle;
     
     //pickups
     bool standingOnPickup;
@@ -108,6 +110,15 @@ public class Player : MonoBehaviour
         //HealthBar
         healthbar.SetHealth(health);
 
+        //Flashlight
+        if (Input.GetKeyDown(KeyCode.T)){ //Add controller input in here
+            if (!flashlightToggle) flashlightToggle = true;
+            else flashlightToggle = false;
+        }
+
+        if (animator.GetBool("ADS") && flashlightToggle) gun.GetComponent<ProjectileGun>().lightBeam.SetActive(true);
+        else gun.GetComponent<ProjectileGun>().lightBeam.SetActive(false);
+
         //ADS
         if (hasGun && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Aim")))
         {
@@ -123,8 +134,9 @@ public class Player : MonoBehaviour
 
             miximoMesh.transform.parent = aimingModelPosition.transform;
 
+            GetComponent<ThirdPersonController>().SprintSpeed = 2f;
+
             animator.SetBool("ADS",true);
-            gun.GetComponent<ProjectileGun>().FlashlightToggle();
         }
         else if (hasGun && (Input.GetMouseButtonUp(1) || Input.GetButtonUp("Aim")))
         {
@@ -140,8 +152,9 @@ public class Player : MonoBehaviour
 
             miximoMesh.transform.parent = gameObject.transform;
 
+            GetComponent<ThirdPersonController>().SprintSpeed = 5.335f;
+
             animator.SetBool("ADS",false);
-            gun.GetComponent<ProjectileGun>().FlashlightToggle();
         }
 
         //collect pickup
