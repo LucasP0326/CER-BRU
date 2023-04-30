@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class AudioManager : MonoBehaviour
@@ -24,6 +25,14 @@ public class AudioManager : MonoBehaviour
     public AudioSource administrationMusic;
     public AudioSource laboratoriesMusic;
     public AudioSource officeMusic;
+
+    public float musicVolume2;
+    public float sfxVolume;
+    public float dialogueVolume;
+
+    public Slider musicSlider;
+    public Slider sfxSlider;
+    public Slider dialogueSlider;
     
     void Awake()
     {
@@ -37,10 +46,11 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
-        */
+        
 
         LoadVolume();
-
+        */
+        
         if (scene.name == "MainMenu")
         {
             mainMusic.Play();
@@ -103,17 +113,21 @@ public class AudioManager : MonoBehaviour
     
     void Update()
     {
-        
+        musicVolume2 = musicSlider.value;
+        sfxVolume = sfxSlider.value;
+        dialogueVolume = dialogueSlider.value;
     }
 
+    /*
     void LoadVolume() //Volume saved in VolumeSettings script
     {
-        float musicVolume2 = PlayerPrefs.GetFloat(MUSIC_KEY,1f);
-        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY,1f);
-        float dialogueVolume = PlayerPrefs.GetFloat(DIALOGUE_KEY,1f);
+        musicVolume2 = PlayerPrefs.GetFloat(MUSIC_KEY,1f);
+        sfxVolume = PlayerPrefs.GetFloat(SFX_KEY,1f);
+        dialogueVolume = PlayerPrefs.GetFloat(DIALOGUE_KEY,1f);
 
         mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume2) * 20);
         mixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
         mixer.SetFloat(VolumeSettings.MIXER_DIALOGUE, Mathf.Log10(dialogueVolume) * 20);
     }
+    */
 }
