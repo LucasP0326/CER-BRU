@@ -30,11 +30,12 @@ public class AudioManager : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         
         /*
-        if (instance == null)
+        if(instance)
+            DestroyImmediate(gameObject);
+        else
         {
-            instance = this;
-
             DontDestroyOnLoad(gameObject);
+            instance = this;
         }
         */
 
