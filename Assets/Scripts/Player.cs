@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     public RawImage hurtEffect;
 
     public AudioSource vent;
+    public AudioSource flashlightClick;
     
     
 
@@ -112,12 +113,19 @@ public class Player : MonoBehaviour
 
         //Flashlight
         if (Input.GetKeyDown(KeyCode.T)){ //Add controller input in here
+            flashlightClick.Play();
             if (!flashlightToggle) flashlightToggle = true;
             else flashlightToggle = false;
         }
 
-        if (animator.GetBool("ADS") && flashlightToggle) gun.GetComponent<ProjectileGun>().lightBeam.SetActive(true);
-        else gun.GetComponent<ProjectileGun>().lightBeam.SetActive(false);
+        if (animator.GetBool("ADS") && flashlightToggle)
+            {
+            gun.GetComponent<ProjectileGun>().lightBeam.SetActive(true);
+            }
+        else
+        {
+            gun.GetComponent<ProjectileGun>().lightBeam.SetActive(false);
+        }
 
         //ADS
         if (hasGun && (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Aim")))
