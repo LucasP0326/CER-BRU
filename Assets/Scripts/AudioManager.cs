@@ -96,17 +96,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+
+    }
+    
     void Update()
     {
+        
     }
 
     void LoadVolume() //Volume saved in VolumeSettings script
     {
-        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY,1f);
+        float musicVolume2 = PlayerPrefs.GetFloat(MUSIC_KEY,1f);
         float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY,1f);
         float dialogueVolume = PlayerPrefs.GetFloat(DIALOGUE_KEY,1f);
 
-        mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
+        mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume2) * 20);
         mixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
         mixer.SetFloat(VolumeSettings.MIXER_DIALOGUE, Mathf.Log10(dialogueVolume) * 20);
     }
