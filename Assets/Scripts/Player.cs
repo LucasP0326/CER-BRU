@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         healthbar.SetHealth(health);
 
         //Flashlight
-        if (Input.GetKeyDown(KeyCode.T)){ //Add controller input in here
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Flashuwu")){ //Add controller input in here
             flashlightClick.Play();
             if (!flashlightToggle) flashlightToggle = true;
             else flashlightToggle = false;
@@ -196,11 +196,11 @@ public class Player : MonoBehaviour
             invisiblityIcon.GetComponent<InvisibilityIcon>().CoolDown();
         }
 
-        if ((Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Crouch")) && infrontOfVent){
+        if ((Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown("Crouch")) && infrontOfVent){
             GoProne();
         }
 
-        if ((Input.GetKey(KeyCode.C) || Input.GetButtonDown("Use"))  && xrayUsable)
+        if ((Input.GetKey(KeyCode.X) || Input.GetButtonDown("Use"))  && xrayUsable)
         {
             xrayUsable = false;
             xrayOn();
