@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public static bool runInBackground;
 
     public GameObject pauseMenuUI;
 
@@ -53,7 +52,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
 
-        Application.runInBackground = true;
     }
 
     public void LoadMenu()
