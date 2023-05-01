@@ -54,9 +54,12 @@ public class OfficeEventManager : MonoBehaviour
 
     public GameObject crosshair;
 
+    public RawImage staticVideo;
+
     // Start is called before the first frame update
     void Start()
     {
+        staticVideo.enabled = false;
         goneRogue = false;
         dialogueActive = false;
         transmission.SetActive(false);
@@ -112,6 +115,7 @@ public class OfficeEventManager : MonoBehaviour
 
     public void RogueEncounter()
     {
+        StartCoroutine(FadeEffect(staticVideo));
         StartCoroutine(GoingRogue());
     }
 
@@ -292,5 +296,16 @@ public class OfficeEventManager : MonoBehaviour
         timeDelay = 4f;
         yield return new WaitForSeconds(timeDelay);
         SceneManager.LoadScene("Cutscene Room");
+    }
+
+    IEnumerator FadeEffect(RawImage image)
+    {
+        staticVideo.enabled = true;
+        for (float i = 0; i <= 1; i += Time.deltaTime)
+            {
+                // set color with i as alpha
+                image.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
     }
 }
